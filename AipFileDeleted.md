@@ -1,8 +1,8 @@
 ## AipFileDeleted
 
-AipFileDeleted is a type of event that is recorded in the Office 365 Unified Audit Log. It represents a successful attempt to delete an Azure Information Protection (AIP) labeled file. This event is typically logged when a user with the appropriate permissions uses the AIP client to delete a file that has been labeled with AIP.
-
 Azure Information Protection is a service that allows organizations to classify and label sensitive data, and apply policies to control how that data is accessed and shared. The AipFileDeleted event can be useful for tracking and monitoring the deletion of AIP labeled files, and ensuring that only authorized users are able to delete such files.
+
+AipFileDeleted is a type of event that is recorded in the Office 365 Unified Audit Log. It represents a successful attempt to delete an Azure Information Protection (AIP) labeled file. This event is typically logged when a user with the appropriate permissions uses the AIP client to delete a file that has been labeled with AIP.
 
 Some common attributes of the AipFileDeleted event type in the Unified Audit Log include:
 
@@ -17,16 +17,16 @@ Before connecting to Unified Audit Log - we need to connect with Exchange Online
 
 # Establishing remote Powershell session
 
-This will establish a remote PowerShell session with Exchange Online.Once the connection is established, you can run Exchange Online cmdlets to manage your Exchange Online environment. For example, you can run the Get-Mailbox cmdlet to retrieve a list of mailboxes in your Exchange Online organization.
-
-This script will import the Exchange Online cmdlets, connect to Exchange Online using the current user's credentials, get the AipFileDeleted events from the last 24 hours, extract the user ID, file name, file type, file path, and file deletion time from the events, and then disconnect from Exchange Online.
-
-You can modify this script to suit your specific needs, such as changing the time period for the events you want to retrieve, or adding additional fields to extract from the events.
+This will establish a remote PowerShell session with Exchange Online.Once the connection is established, you can run Exchange Online cmdlets to manage your Exchange Online environment. 
 
 Open a PowerShell window and run the Install-Module -Name ExchangeOnlineManagement command to install the Exchange Online Management module. This module provides cmdlets that can be used to manage Exchange Online.
 
+1. Connect-IPPSSession is a PowerShell cmdlet used to create a remote connection to an Exchange Online PowerShell session.
+2. Import-Module ExchangeOnlineManagement is a PowerShell cmdlet used to import the Exchange Online Management module into the current PowerShell session.
+
 ```powershell
 # Import the Exchange Online cmdlets
+Connect-IPPSSession
 Import-Module ExchangeOnlineManagement
 ```
 
