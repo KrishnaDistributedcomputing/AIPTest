@@ -2,6 +2,10 @@
 
 ## Managing Large Amounts of Audit Data
 
+If you need to retrieve a large number of audit records from a large tenant, or if you need to search for multiple operations over an extended period, it is likely that a single search will return more than 5,000 records. 
+
+In this case, you can use the ReturnLargeSet and ReturnNextPreviewPage parameters to fetch audit data in pages of up to 5,000 records at a time. This technique allows you to retrieve up to 50,000 audit records. If you need to search for more than 50,000 records, you can split the work across multiple searches, each of which uses different criteria. You can then store the results of these searches in an external repository for later analysis.
+
 To manage large volumes of data from the Search-UnifiedAuditLog cmdlet, you can use the ReturnLargeSet and ReturnNextPreviewPage parameters. These parameters allow you to perform searches that return large sets of results, and then retrieve the next page of results in subsequent searches.
  
 
@@ -13,7 +17,17 @@ To manage large volumes of data from the Search-UnifiedAuditLog cmdlet, you can 
 
 4. Store the results of the searches in an external repository, such as Azure log analytics , Azure Dataexplorer , for easy access and analysis.
  
-5. Regularly review and update your search criteria and audit data management processes to ensure that you are capturing the right data and efficiently managing it. This will help you stay on top of any potential security issues and improve the overall security of your organization
+5. Regularly review and update your search criteria and audit data management processes to ensure that you are capturing the right data and efficiently managing it. This will help you stay on top of any potential security issues and improve the overall security of your organization.
+
+### Quick Summary
+
+To fetch a large amount of audit data, follow these steps:
+
+1. Generate a session identifier.
+2. Use a loop to retrieve data in multiple pages.
+3. Repeatedly run the Search-UnifiedAuditLog command to fetch all the available data.
+4. Save the data from each run of Search-UnifiedAuditLog.
+5. After all the pages have been fetched, sort the data by date and export it to a CSV file.
  
  ## Reteriving large data set using  Search-UnifiedAuditLog  
  
