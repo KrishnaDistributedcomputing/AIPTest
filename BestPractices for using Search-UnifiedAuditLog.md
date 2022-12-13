@@ -46,8 +46,7 @@ AuditData:{
   },
   "Common":{
     "ApplicationId":"c00e9d32-3c8d-4a7d-832b-029040e7db99",
-    "ApplicationName":"Microsoft 
-               Azure Information Protection Word Add-In",
+    "ApplicationName":"Microsoft Azure Information Protection Word Add-In",
     "ProcessName":"WINWORD",
     "Platform":1,
     "DeviceName":"AdeleVanceWindo",
@@ -56,8 +55,7 @@ AuditData:{
   },
   "DataState":"Use",
   "ObjectId":"C:\\452Documentcreated.docx",
-  "UserId":"AdeleV@M36
-               5x23987777.OnMicrosoft.com",
+  "UserId":"AdeleV@M365x23987777.OnMicrosoft.com",
   "ClientIP":"20.237.230.167",
   "Id":"20728aaf-1964-1a4a-bd72-784fa3c12132",
   "RecordType":93,
@@ -65,8 +63,7 @@ AuditData:{
   "Operation":"Access",
   "OrganizationId":"4b080626-0acc-4940-8af8-bfc836ff1a59",
   "UserType":0,
-  "UserKey":"Ad
-               eleV@M365x23987777.OnMicrosoft.com",
+  "UserKey":"AdeleV@M365x23987777.OnMicrosoft.com",
   "Workload":"Aip",
   "Version":1,
   "Scope":1
