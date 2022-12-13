@@ -187,7 +187,7 @@ for ($i = 0; $i -lt $results.Count; $i++) {
     Write-Output $entry
 }
 ```
-
+## ReturnNextPreviewPage
 
 ```powershell
 # Set the start and end time for the audit log search
