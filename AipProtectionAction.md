@@ -1,5 +1,42 @@
 ## AipProtectionAction
 
+# Connecting with ExchangeOnline Management
+
+The Import-Module cmdlet in PowerShell allows you to import a PowerShell module into the current session. This allows you to use the cmdlets and functions defined in the module.
+
+The ExchangeOnlineManagement module is a PowerShell module that provides cmdlets for managing Exchange Online, which is the cloud-based version of Microsoft Exchange Server. This module allows you to manage Exchange Online users, groups, and mailboxes, as well as to access and manipulate data in the audit log.
+
+To import the ExchangeOnlineManagement module, you can use the following command:
+
+```powershell
+Import-Module ExchangeOnlineManagement
+```
+
+Once the module is imported, you can use the cmdlets defined in the module to manage Exchange Online and access the audit log data. For example, you can use the Connect-ExchangeOnline cmdlet to connect to Exchange Online, and the Get-UnifiedAuditLog cmdlet to retrieve audit log entries.
+
+# Connecting with Search-UnifiedAuditLog
+
+The Search-UnifiedAuditLog cmdlet in PowerShell allows you to search for specific record types in the audit log for Azure Information Protection (AIP). The available record types for AIP are , You can also use the Search-UnifiedAuditLog cmdlet to search the audit log for specific record types or events. For example, the following command will search for all audit log entries that were generated within the last week:
+
+```powershell
+Search-UnifiedAuditLog -StartDate (Get-Date).AddDays(-7) -EndDate (Get-Date)
+```
+Following are the record types for AIP.
+
+AzureInformationProtectionAudit: This record type logs events such as when a user applies a label to a document or email, when a label is applied automatically based on a policy, and when a user accesses or views a labeled document or email.
+
+AzureInformationProtectionHeartbeat: This record type logs events related to the health and status of the AIP service, such as when the service starts and stops, when it encounters errors or issues, and when it is being used by users.
+
+AzureInformationProtectionPolicy: This record type logs events related to AIP policies, such as when a policy is created or modified, when a policy is assigned to a user or group, and when a policy is removed.
+
+AzureInformationProtectionUnifiedAudit: This record type logs events related to AIP unified auditing, such as when unified auditing is enabled or disabled, when a unified audit log is accessed or downloaded, and when a unified audit log is deleted or purged.
+
+You can use the -RecordType parameter of the Search-UnifiedAuditLog cmdlet to specify the record type you want to search for. For example, the following command will search for all AIP HeartBeat events that were generated within the last week:
+
+ ```powershell
+ Search-UnifiedAuditLog -RecordType AzureInformationProtectionHeartbeat -StartDate (Get-Date).AddDays(-7) -EndDate (Get-Date)
+```
+
 | Event              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | :----------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | PSComputerName     | Computer name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
