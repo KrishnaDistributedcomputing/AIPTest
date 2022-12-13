@@ -106,10 +106,14 @@ RecordType   : AipDiscover
 CreationDate : 2022-09-15 5:49:22 PM
 UserIds      : AdeleV@M365x23987777.OnMicrosoft.com
 Operations   : Access
+```
+```json
 AuditData    : {"SensitivityLabelEventData":{"SensitivityLabelId":"8581574a-c314-42e3-bfdc-a63cf96ed86e"},"SensitiveInfoTypeData":[],"ProtectionEventData":{"IsProtected":false},"Common":{"ApplicationId":"c00e9d32-3c8d-4a7d-832b-029040e7db99","ApplicationName":"Microsoft 
                Azure Information Protection Word Add-In","ProcessName":"WINWORD","Platform":1,"DeviceName":"AdeleVanceWindo","Location":"On-premises file shares","ProductVersion":"2.13.49.0"},"DataState":"Use","ObjectId":"C:\\452Documentcreated.docx","UserId":"AdeleV@M36
                5x23987777.OnMicrosoft.com","ClientIP":"20.237.230.167","Id":"20728aaf-1964-1a4a-bd72-784fa3c12132","RecordType":93,"CreationTime":"2022-09-15T17:49:22","Operation":"Access","OrganizationId":"4b080626-0acc-4940-8af8-bfc836ff1a59","UserType":0,"UserKey":"Ad
                eleV@M365x23987777.OnMicrosoft.com","Workload":"Aip","Version":1,"Scope":1}
+```
+```keyvalue
 ResultIndex  : 8
 ResultCount  : 8
 Identity     : 20728aaf-1964-1a4a-bd72-784fa3c12132
