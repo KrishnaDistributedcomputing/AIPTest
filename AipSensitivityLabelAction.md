@@ -2,6 +2,39 @@
 
 Azure Information Protection (AIP) sensitivity label events are actions or activities that are triggered when a sensitivity label is applied to a document or email. These events are defined by the organization using AIP, and can be used to automate various tasks or processes based on the sensitivity labels applied to sensitive data. For example, an organization might set up an event that automatically encrypts a document if it's labeled as "confidential," or that sends a notification to the data owner if a document is labeled as "internal" and shared outside the organization. These events can help organizations ensure that their sensitive data is protected and used in compliance with their security policies.
 
+# Establishing remote Powershell session
+
+This will establish a remote PowerShell session with Exchange Online.Once the connection is established, you can run Exchange Online cmdlets to manage your Exchange Online environment. 
+
+Open a PowerShell window and run the Install-Module -Name ExchangeOnlineManagement command to install the Exchange Online Management module. This module provides cmdlets that can be used to manage Exchange Online.
+
+1. Connect-IPPSSession is a PowerShell cmdlet used to create a remote connection to an Exchange Online PowerShell session.
+2. Import-Module ExchangeOnlineManagement is a PowerShell cmdlet used to import the Exchange Online Management module into the current PowerShell session.
+
+```powershell
+# Import the PSSSession and Exchange Online cmdlets
+Connect-IPPSSession
+Import-Module ExchangeOnlineManagement
+```
+
+## Option 1 :- If you want to connect with a specific user. 
+
+Command to prompt for a specific user for  your Exchange Online credentials.
+```powershell
+$UserCredential = Get-Credential 
+```
+Command to connect to Exchange Online using the provided credentials. 
+```powershell
+ Connect-ExchangeOnline -Credential $UserCredential -ShowProgress $true 
+```
+## Option 2 :- If you want to connect with credentials in the current session
+Connect to Exchange Online using the credentials in the current session
+```powershell
+Connect-ExchangeOnline
+```
+
+# Extracting AipSensitivityLabelAction
+
 ```powershell
 Search-UnifiedAuditLog -RecordType 'AipSensitivityLabelAction'  -StartDate "12/1/2022" -EndDate "12/31/2022" -ResultSize 1000
 ```
