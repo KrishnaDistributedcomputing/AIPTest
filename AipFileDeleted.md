@@ -13,10 +13,6 @@ Some common attributes of the AipFileDeleted event type in the Unified Audit Log
 5. ResultStatus: The result of the operation, either "Success" or "Failure".
 6. ObjectId: The unique identifier of the file that was deleted.
 
-You can use the Search-UnifiedAuditLog PowerShell cmdlet to search for AipFileDeleted events in the Unified Audit Log, and use the Select-Object cmdlet to specify which attributes you want to include in the results.
-
-Here is an example of a complex PowerShell script that can be used to extract information from the AipFileDeleted event type in the Office 365 Unified Audit Log:
-
 Before connecting to Unified Audit Log - we need to connect with Exchange Online using PowerShell, you can use the following steps:
 
 Open a PowerShell window and run the Install-Module -Name ExchangeOnlineManagement command to install the Exchange Online Management module. This module provides cmdlets that can be used to manage Exchange Online.
@@ -43,6 +39,15 @@ Import-Module ExchangeOnlineManagement
 
 # Connect to Exchange Online using the credentials in the current session
 Connect-ExchangeOnline
+
+# Finding AipFileDeleted events 
+You can use the Search-UnifiedAuditLog PowerShell cmdlet to search for AipFileDeleted events in the Unified Audit Log, and use the Select-Object cmdlet to specify which attributes you want to include in the results.
+
+```powershell
+$Operations = "FileDeleted, FileDeletedFirstStageRecycleBin, FileDeletedSecondStageRecycleBin" 
+$StartDate = (Get-Date).AddDays(-90); $EndDate = (Get-Date) 
+Search-UnifiedAuditLog -Operations $Operations -StartDate $StartDate -EndDate $EndDate -ResultSize 5000 -Formatted
+```
 
 # Get the AipFileDeleted events from the last 24 hours
 $events = Search-UnifiedAuditLog -StartDate (Get-Date).AddHours(-24) -EndDate (Get-Date) -RecordType AipFileDeleted
@@ -75,6 +80,19 @@ This script first sets the date range for the search using the Get-Date cmdlet, 
 
 This is just one example of how the Search-UnifiedAuditLog cmdlet can be used to extract information from the Unified Audit Log. You may need to adjust the script and specify additional parameters based on your specific requirements. For more information about the cmdlets and their parameters, you can refer to the Microsoft documentation or use the PowerShell Get-Help command.
 
+## Managing Large Amounts of Audit Data
+
+To manage large amounts of audit data from the Search-UnifiedAuditLog cmdlet, you can follow these steps:
+
+1. Use the SessionId parameter to identify a search session and specify the number of pages you want to retrieve. This will allow the cmdlet to fetch multiple pages of data and return them to you.
+
+2. The SessionId parameter is used when you want to search for a large amount of audit data using the Search-UnifiedAuditLog cmdlet. The cmdlet will return a maximum of 5000 records per page, so if you want to search for more than that, you will need to use the SessionId parameter to identify a search session and specify the number of pages you want to retrieve. The cmdlet will then use the session identifier to fetch the additional pages of data and return them to you.
+
+3. If you need to search for more than 50,000 records, split the work across multiple searches and use different criteria for each search.
+
+4. Store the results of the searches in an external repository, such as Azure log analytics , Azure Dataexplorer , for easy access and analysis.
+ 
+5. Regularly review and update your search criteria and audit data management processes to ensure that you are capturing the right data and efficiently managing it. This will help you stay on top of any potential security issues and improve the overall security of your organization
  
 
 
