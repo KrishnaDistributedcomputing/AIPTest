@@ -3,6 +3,38 @@ AIPDiscover is a type of event that is recorded in the Office 365 Unified Audit 
 
 Azure Information Protection is a service that allows organizations to classify and label sensitive data, and apply policies to control how that data is accessed and shared. The AIPDiscover event can be useful for tracking and monitoring access to the AIP configuration, and ensuring that only authorized users are able to view or modify it.
 
+Before connecting to Unified Audit Log - we need to connect with Exchange Online using PowerShell, you can use the following steps:
+
+# Establishing remote Powershell session
+
+This will establish a remote PowerShell session with Exchange Online.Once the connection is established, you can run Exchange Online cmdlets to manage your Exchange Online environment. 
+
+Open a PowerShell window and run the Install-Module -Name ExchangeOnlineManagement command to install the Exchange Online Management module. This module provides cmdlets that can be used to manage Exchange Online.
+
+1. Connect-IPPSSession is a PowerShell cmdlet used to create a remote connection to an Exchange Online PowerShell session.
+2. Import-Module ExchangeOnlineManagement is a PowerShell cmdlet used to import the Exchange Online Management module into the current PowerShell session.
+
+```powershell
+# Import the PSSSession and Exchange Online cmdlets
+Connect-IPPSSession
+Import-Module ExchangeOnlineManagement
+```
+
+## Option 1 :- If you want to connect with a specific user. 
+
+Command to prompt for a specific user for  your Exchange Online credentials.
+```powershell
+$UserCredential = Get-Credential 
+```
+Command to connect to Exchange Online using the provided credentials. 
+```powershell
+ Connect-ExchangeOnline -Credential $UserCredential -ShowProgress $true 
+```
+## Option 2 :- If you want to connect with credentials in the current session
+Connect to Exchange Online using the credentials in the current session
+```powershell
+Connect-ExchangeOnline
+
 # Extracting information from Search_unifiedauditlog   
 
 The Search-UnifiedAuditLog cmdlet is a PowerShell command that can be used to search the Office 365 Unified Audit Log. The Unified Audit Log is a record of user and administrator activity in Office 365. It can be used to track events such as user login attempts, changes to user permissions, and the creation or deletion of Office 365 objects.
