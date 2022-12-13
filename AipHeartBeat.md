@@ -40,7 +40,6 @@ Connect-ExchangeOnline
 
 ## Extracting AipHeartBeat
 
-## Using Powershell to extract information related to AIPHeartBeat.
 
 The Search-UnifiedAuditLog cmdlet in PowerShell allows you to search for specific record types in the audit log. To search for AIP HeartBeat events, you would use the AzureInformationProtectionHeartbeat record type.
 
@@ -49,6 +48,7 @@ For example, the following command will search for all AIP HeartBeat events that
 ```powershell
 Search-UnifiedAuditLog -RecordType AipHeartbeat -StartDate (Get-Date).AddDays-7) -EndDate (Get-Date)
 ```
+
 The following command will fetch large volume of AIP heartbeat.
 
 ```powershell
