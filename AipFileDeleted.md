@@ -113,22 +113,26 @@ To manage large amounts of audit data from the Search-UnifiedAuditLog cmdlet, yo
  
  Search-UnifiedAuditLog has two parameters to support the retrieval of large data sets:
  
- > The **SessionId** parameter holds a string value to identify a search session. You can use any value you like from a simple number to a GUID generated with the New-Guid cmdlet. The presence of a session identifier tells Search-UnifiedAuditLog that it might need to fetch several pages of data.
+ The **SessionId** parameter holds a string value to identify a search session. You can use any value you like from a simple number to a GUID generated with the New-Guid cmdlet. The presence of a session identifier tells Search-UnifiedAuditLog that it might need to fetch several pages of data.
+  ```powershell
+  eg.
+  $SessionId = "5b5a5a5a-5b5b-5c5c-5d5d-5e5e5e5e5e5e"
+  $SessionId = "UnifiedAuditLogSearch 01/02/17"
+  ```
 
- > The **SessionCommand** parameter tells Search-UnifiedAuditLog how to handle large amounts of audit data. The returned data might contain duplicate records. This parameter can be set to:
+The **SessionCommand** parameter tells Search-UnifiedAuditLog how to handle large amounts of audit data. The returned data might contain duplicate records. This parameter can be set to:
  
  > **ReturnLargeSet** : The audit records returned are unsorted. You can fetch up to 50,000 audit records using this method but must remember to sort the data once it is all fetched.
 
- > **ReturnNextPreviewPage** : Search-UnifiedAuditLog returns audit records sorted by date. However, you can fetch only a maximum of 5,000 records using this method. If more matching records exist, attempts to fetch the data will result in an er
+ > **ReturnNextPreviewPage** : Search-UnifiedAuditLog returns audit records sorted by date. However, you can fetch only a maximum of 5,000 records using this method.  The maximum number of records returned through use of either paging or the ResultSize parameter is 5,000 records.
+
+**Note**
+==Always use the same SessionCommand value for a given SessionId value. Don't switch between ReturnLargeSet and ReturnNextPreviewPage for the same session ID. Otherwise, the output is limited to 10,000 results.==
 
 ### SessionId
 
 1. In this example, the script first imports the Exchange Online Management module and creates a remote connection to Exchange Online. It then sets the start and end dates for the search, and uses the Search-UnifiedAuditLog cmdlet to search the Unified Audit Log for entries within the specified date range.
-```powershell
-eg.
-$SessionId = "5b5a5a5a-5b5b-5c5c-5d5d-5e5e5e5e5e5e"
-$SessionId = "UnifiedAuditLogSearch 01/02/17"
-```
+
 
 2. The script then uses a foreach loop to scan through the array of records returned by the cmdlet, and processes each record as needed. In this case, it prints the operation name and user identity for each record.
 
