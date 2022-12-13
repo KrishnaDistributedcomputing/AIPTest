@@ -36,7 +36,7 @@ Connect to Exchange Online using the credentials in the current session
 Connect-ExchangeOnline
 ```
 
-# Extracting information from Search_unifiedauditlog   
+# Extracting AipDiscover
 
 The Search-UnifiedAuditLog cmdlet is a PowerShell command that can be used to search the Office 365 Unified Audit Log. The Unified Audit Log is a record of user and administrator activity in Office 365. It can be used to track events such as user login attempts, changes to user permissions, and the creation or deletion of Office 365 objects.
 
