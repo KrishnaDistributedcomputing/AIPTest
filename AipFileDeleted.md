@@ -73,23 +73,23 @@ Disconnect-ExchangeOnline
 2. Next, the script uses the Select-Object cmdlet to extract the relevant information from each event, including the creation time, user ID, client IP, operation type, result status, and file name. 
 3. Finally, the script exports the results to a CSV file using the Export-Csv cmdlet.
 
-## Set the date range for the search
+### Set the date range for the search
 ```powershell
 $startDate = Get-Date -Year 2020 -Month 1 -Day 1
 $endDate = Get-Date
 ```
 
-## Search the Unified Audit Log for AipFileDeleted events in the specified date range
+### Search the Unified Audit Log for AipFileDeleted events in the specified date range
 ```powershell
 $auditEvents = Search-UnifiedAuditLog -StartDate $startDate -EndDate $endDate -Operations AipFileDeleted
 ```
 
-##  Extract the relevant information from each event
+### Extract the relevant information from each event
 ```powershell
 $results = $auditEvents | Select-Object CreationTime, UserId, ClientIP, Operation, ResultStatus, FileName
 ```
 
-##  Write the results to a CSV file
+###  Write the results to a CSV file
 ```powershell
 $results | Export-Csv -Path C:\AipFileDeleted-Audit.csv -NoTypeInformation
 ```
