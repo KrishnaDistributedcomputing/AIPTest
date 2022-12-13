@@ -15,15 +15,6 @@ Some common attributes of the AipFileDeleted event type in the Unified Audit Log
 
 Before connecting to Unified Audit Log - we need to connect with Exchange Online using PowerShell, you can use the following steps:
 
-Open a PowerShell window and run the Install-Module -Name ExchangeOnlineManagement command to install the Exchange Online Management module. This module provides cmdlets that can be used to manage Exchange Online.
-
-command to prompt for your Exchange Online credentials.
-```powershell
-Run the $UserCredential = Get-Credential 
-```
-command to connect to Exchange Online using the provided credentials. 
-```powershell
-Run the Connect-ExchangeOnline -Credential $UserCredential -ShowProgress $true 
 ```
 
 ## Establishing remote Powershell session
@@ -37,9 +28,23 @@ You can modify this script to suit your specific needs, such as changing the tim
 # Import the Exchange Online cmdlets
 Import-Module ExchangeOnlineManagement
 
-# Connect to Exchange Online using the credentials in the current session
-Connect-ExchangeOnline
 
+Open a PowerShell window and run the Install-Module -Name ExchangeOnlineManagement command to install the Exchange Online Management module. This module provides cmdlets that can be used to manage Exchange Online.
+
+** Option 1 :- If you want to connect with a specific user. **
+command to prompt for your Exchange Online credentials.
+```powershell
+Run the $UserCredential = Get-Credential 
+```
+command to connect to Exchange Online using the provided credentials. 
+```powershell
+Run the Connect-ExchangeOnline -Credential $UserCredential -ShowProgress $true 
+```
+** Option 2 :- If you want to connect with a specific user.** 
+# Connect to Exchange Online using the credentials in the current session
+```powershell
+Connect-ExchangeOnline
+```
 # Finding AipFileDeleted events 
 You can use the Search-UnifiedAuditLog PowerShell cmdlet to search for AipFileDeleted events in the Unified Audit Log, and use the Select-Object cmdlet to specify which attributes you want to include in the results.
 
