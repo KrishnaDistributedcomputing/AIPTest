@@ -69,11 +69,12 @@ Disconnect-ExchangeOnline
 
 ## Additional samples
 
-This script first sets the date range for the search using the Get-Date cmdlet, and then uses the Search-UnifiedAuditLog cmdlet to search for AipFileDeleted events within that date range. Next, the script uses the Select-Object cmdlet to extract the relevant information from each event, including the creation time, user ID, client IP, operation type, result status, and file name. Finally, the script exports the results to a CSV file using the Export-Csv cmdlet.
+1. This script first sets the date range for the search using the Get-Date cmdlet, and then uses the Search-UnifiedAuditLog cmdlet to search for AipFileDeleted events within that date range. 
+2. Next, the script uses the Select-Object cmdlet to extract the relevant information from each event, including the creation time, user ID, client IP, operation type, result status, and file name. 
+3. Finally, the script exports the results to a CSV file using the Export-Csv cmdlet.
 
 ## Set the date range for the search
 ```powershell
-
 $startDate = Get-Date -Year 2020 -Month 1 -Day 1
 $endDate = Get-Date
 ```
