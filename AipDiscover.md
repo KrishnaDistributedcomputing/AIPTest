@@ -1,10 +1,23 @@
+## AipDiscover
+AIPDiscover is a type of event that is recorded in the Office 365 Unified Audit Log. It represents a successful attempt to discover the Azure Information Protection (AIP) classification and labeling configuration for a tenant. This event is typically logged when an administrator or user with the appropriate permissions accesses the AIP configuration settings in the Azure Portal or uses the Azure Information Protection PowerShell cmdlets to view the configuration.
+
+Azure Information Protection is a service that allows organizations to classify and label sensitive data, and apply policies to control how that data is accessed and shared. The AIPDiscover event can be useful for tracking and monitoring access to the AIP configuration, and ensuring that only authorized users are able to view or modify it.
+
 # Extracting information from Search_unifiedauditlog   
-The Unified Audit Log, as the name implies, is a log file in which different activities performed in and through Microsoft 365 are recorded. The log contains a lot of useful information which you can use for a variety of activities related to your security operations.  Following is sample powershell script to extract information from search_unifiedauditlog
- 
- Review the following on how to [enable Auditlog](https://learn.microsoft.com/en-us/powershell/module/exchange/search-unifiedauditlog?view=exchange-ps)
- 
- Sample script to extract values.
- 
+
+The Search-UnifiedAuditLog cmdlet is a PowerShell command that can be used to search the Office 365 Unified Audit Log. The Unified Audit Log is a record of user and administrator activity in Office 365. It can be used to track events such as user login attempts, changes to user permissions, and the creation or deletion of Office 365 objects.
+
+To extract the AIPDiscover event from the Unified Audit Log using PowerShell, you can use the following command:
+
+```powershell
+Search-UnifiedAuditLog -StartDate <start date> -EndDate <end date> -Operations AIPDiscover | Export-Csv -Path <output file>
+```
+This will search the Unified Audit Log for the specified date range and return any events with the operation type "AIPDiscover". The results will be exported to a CSV file at the specified path.
+
+Note: This is just an example of how the Search-UnifiedAuditLog cmdlet can be used. You may need to adjust the command and specify additional parameters based on your specific requirements. For more information about the cmdlet and its parameters, you can refer to the Microsoft documentation or use the PowerShell Get-Help command.
+
+Additional Powershell samples
+
 ```powershell
 Search-UnifiedAuditLog -StartDate "9/1/22" -EndDate "10/19/22" -RecordType SharePointFileOperation
 ```
@@ -13,7 +26,7 @@ Search-UnifiedAuditLog -StartDate "9/1/22" -EndDate "10/19/22" -RecordType Share
 Search-UnifiedAuditLog -Operations FileDeleted -StartDate 4-Nov-2022 -EndDate 5-Dec-2022 -ResultSize 2000
 ```
 
-## AipDiscover
+
 
 The following table contains information related to Azure Information Protection (AIP) scanner events.
 
