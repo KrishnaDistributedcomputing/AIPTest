@@ -16,14 +16,19 @@ For example, the following command will search for all AIP HeartBeat events that
 ```powershell
 Search-UnifiedAuditLog -RecordType AipHeartbeat -StartDate (Get-Date).AddDays-7) -EndDate (Get-Date)
 ```
+The following command will fetch large volume of AIP heartbeat.
+
+```powershell
+Search-UnifiedAuditLog -StartDate $StartDate -EndDate $EndDate -SessionId $SessionName -SessionCommand ReturnLargeSet -ResultSize 4500 -RecordType AipHeartbeat
+```
+
 ### What are RecordType
 RecordType: The workload that generated the record. Examples of different types of events that can be found using the Search-UnifiedAuditLog cmdlet include:
-
-Adding a member to a group in Azure Active Directory(**AzureActiveDIrectory**)
-Updating mailbox properties in Exchange (**ExchangeAdmin**)
-Deleting a file in SharePoint (**SharePointFileOperation**)
-A user logging onto Microsoft Teams ((**MicrosoftTeams**)
-AIP Heartbeat(**AipHeartbeat**)
+1. Adding a member to a group in Azure Active Directory(**AzureActiveDIrectory**)
+2. Updating mailbox properties in Exchange (**ExchangeAdmin**)
+3. Deleting a file in SharePoint (**SharePointFileOperation**)
+4. A user logging onto Microsoft Teams ((**MicrosoftTeams**)
+5. AIP Heartbeat(**AipHeartbeat**)
 
 
 These events can be searched for and tracked using the Search-UnifiedAuditLog cmdlet, which allows you to filter and view the details of the events that are recorded in the unified audit log.
