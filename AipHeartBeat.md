@@ -7,6 +7,36 @@ The AzureInformationProtectionHeartbeat record type tracks the health and status
 
 The AzureInformationProtectionHeartbeat record type is useful for monitoring the health and performance of the AIP service, as well as for troubleshooting any issues that may arise with the service. You can use the Search-UnifiedAuditLog cmdlet in PowerShell to search for AIP HeartBeat events in the audit log.
 
+# Establishing remote Powershell session
+
+This will establish a remote PowerShell session with Exchange Online.Once the connection is established, you can run Exchange Online cmdlets to manage your Exchange Online environment. 
+
+Open a PowerShell window and run the Install-Module -Name ExchangeOnlineManagement command to install the Exchange Online Management module. This module provides cmdlets that can be used to manage Exchange Online.
+
+1. Connect-IPPSSession is a PowerShell cmdlet used to create a remote connection to an Exchange Online PowerShell session.
+2. Import-Module ExchangeOnlineManagement is a PowerShell cmdlet used to import the Exchange Online Management module into the current PowerShell session.
+
+```powershell
+# Import the PSSSession and Exchange Online cmdlets
+Connect-IPPSSession
+Import-Module ExchangeOnlineManagement
+```
+
+## Option 1 :- If you want to connect with a specific user. 
+
+Command to prompt for a specific user for  your Exchange Online credentials.
+```powershell
+$UserCredential = Get-Credential 
+```
+Command to connect to Exchange Online using the provided credentials. 
+```powershell
+ Connect-ExchangeOnline -Credential $UserCredential -ShowProgress $true 
+```
+## Option 2 :- If you want to connect with credentials in the current session
+Connect to Exchange Online using the credentials in the current session
+```powershell
+Connect-ExchangeOnline
+
 ## Using Powershell to extract information related to AIPHeartBeat.
 
 The Search-UnifiedAuditLog cmdlet in PowerShell allows you to search for specific record types in the audit log. To search for AIP HeartBeat events, you would use the AzureInformationProtectionHeartbeat record type.
