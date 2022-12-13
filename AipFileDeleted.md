@@ -124,6 +124,11 @@ To manage large amounts of audit data from the Search-UnifiedAuditLog cmdlet, yo
 ### SessionId
 
 1. In this example, the script first imports the Exchange Online Management module and creates a remote connection to Exchange Online. It then sets the start and end dates for the search, and uses the Search-UnifiedAuditLog cmdlet to search the Unified Audit Log for entries within the specified date range.
+```powershell
+eg.
+$SessionId = "5b5a5a5a-5b5b-5c5c-5d5d-5e5e5e5e5e5e"
+$SessionId = "UnifiedAuditLogSearch 01/02/17"
+```
 
 2. The script then uses a foreach loop to scan through the array of records returned by the cmdlet, and processes each record as needed. In this case, it prints the operation name and user identity for each record.
 
@@ -154,6 +159,8 @@ foreach ($Record in $Records)
 
 In this script, the Search-UnifiedAuditLog cmdlet is used to search the audit log for entries between the specified start and end times. The ReturnLargeSet parameter is set by specifying the SessionId and SessionCommand parameters in the $parameters object. The results of the search are then looped through and each entry is output to the console.
 
+> ReturnLargeSet:  Will return return unsorted data. By using paging, you can access a maximum of 50,000 results. This is the recommended value if an ordered result is not required and has been optimized for search latency.
+
 ```powershell 
 # Set the start and end time for the audit log search
 $startTime = "01/01/2022 00:00:00"
@@ -177,6 +184,27 @@ for ($i = 0; $i -lt $results.Count; $i++) {
 }
 ```
 
+
+```powershell
+# Set the start and end time for the audit log search
+$startTime = "01/01/2022 00:00:00"
+$endTime = "12/31/2022 23:59:59"
+
+ 
+# Set the parameters for  search
+$parameters = @{
+    SessionId = "UnifiedAuditLogSearch 01/02/17"
+    SessionCommand = "ReturnNextPreviewPage"
+    StartDate = $startTime
+    EndDate = $endTime
+}
+
+# Retrieve   results
+$resultpage = Search-UnifiedAuditLog @parameters
+
+# Output the results of the next page search
+$resultpage
+```
 
 | Event              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | :----------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
