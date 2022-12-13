@@ -122,6 +122,10 @@ To manage large amounts of audit data from the Search-UnifiedAuditLog cmdlet, yo
  > **ReturnNextPreviewPage** : Search-UnifiedAuditLog returns audit records sorted by date. However, you can fetch only a maximum of 5,000 records using this method. If more matching records exist, attempts to fetch the data will result in an er
 
 ### SessionId
+
+In this example, the script first imports the Exchange Online Management module and creates a remote connection to Exchange Online. It then sets the start and end dates for the search, and uses the Search-UnifiedAuditLog cmdlet to search the Unified Audit Log for entries within the specified date range.
+The script then uses a foreach loop to scan through the array of records returned by the cmdlet, and processes each record as needed. In this case, it prints the operation name and user identity for each record.
+
 ```powershell
 # Import the Exchange Online Management module
 Import-Module ExchangeOnlineManagement
