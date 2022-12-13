@@ -4,7 +4,7 @@
 2. By default, the Search-UnifiedAuditLog cmdlet returns 100 audit records for any search request, unless you specify a different number of records to retrieve using the ResultSize parameter (up to a maximum of **5,000 records**). 
 3. A single search can process a maximum of **50,000 audit records** using page retrieval. Because the audit log can contain a large amount of data, it's important to be as specific as possible when using search parameters to avoid returning too many records. 
 4. To use the Search-UnifiedAuditLog cmdlet, your account must have the Exchange View-Only Audit Logs or Audit Logs role. These roles are part of the **Compliance Management and Organization Management role groups**, and can be assigned to other role groups as needed.
-5. List of [Record Types](https://learn.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema#auditlogrecordtype) 
+5.
 
 ## Structure of  Audit Data
 
@@ -83,7 +83,7 @@ One way to approach this problem is to take steps to generate an audit event for
 
 This will give you a smaller set of events to work with, which you can then analyze and use to perform further searches. It's also a good idea to use the **Operations** / **RecordTypes**  values logged for the events to help you refine your searches and find the specific events you're looking for.
 
-Following is an example of filtering data by looking for very specific operations and in a given date range.
+Following is an example of filtering data by looking for very specific operations and in a given date range.  Navigate to for  [Record Types](https://learn.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema#auditlogrecordtype) 
 
 ```powershell
 $Operations = ("SensitivityLabelUpdated", "SensitivityLabelApplied", "FileSensitivityLabelApplied")
