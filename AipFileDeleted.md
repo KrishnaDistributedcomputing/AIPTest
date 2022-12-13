@@ -189,6 +189,8 @@ for ($i = 0; $i -lt $results.Count; $i++) {
 ```
 ## ReturnNextPreviewPage
 
+This script performs a search using the Search-UnifiedAuditLog cmdlet and the ReturnNextPreviewPage parameter. The search is performed using the specified start and end times. The results of the search are then output to the console.
+
 ```powershell
 # Set the start and end time for the audit log search
 $startTime = "01/01/2022 00:00:00"
