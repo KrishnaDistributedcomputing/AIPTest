@@ -1,20 +1,36 @@
-## AipProtectionAction
+# AipProtectionAction
 
 AIP offers a feature called "Protection Action" that allows organizations to set rules and policies for how their data should be protected. This can include specifying which data should be encrypted, setting restrictions on who can access certain data, and defining actions that should be taken if certain conditions are met. In short, AIP Protection Action is a feature within Azure Information Protection that helps organizations protect their sensitive data by enabling them to set rules and policies for data protection.
 
-# Connecting with ExchangeOnline Management
+# Establishing remote Powershell session
 
-The Import-Module cmdlet in PowerShell allows you to import a PowerShell module into the current session. This allows you to use the cmdlets and functions defined in the module.
+This will establish a remote PowerShell session with Exchange Online.Once the connection is established, you can run Exchange Online cmdlets to manage your Exchange Online environment. 
 
-The ExchangeOnlineManagement module is a PowerShell module that provides cmdlets for managing Exchange Online, which is the cloud-based version of Microsoft Exchange Server. This module allows you to manage Exchange Online users, groups, and mailboxes, as well as to access and manipulate data in the audit log.
+Open a PowerShell window and run the Install-Module -Name ExchangeOnlineManagement command to install the Exchange Online Management module. This module provides cmdlets that can be used to manage Exchange Online.
 
-To import the ExchangeOnlineManagement module, you can use the following command:
+1. Connect-IPPSSession is a PowerShell cmdlet used to create a remote connection to an Exchange Online PowerShell session.
+2. Import-Module ExchangeOnlineManagement is a PowerShell cmdlet used to import the Exchange Online Management module into the current PowerShell session.
 
 ```powershell
+# Import the PSSSession and Exchange Online cmdlets
+Connect-IPPSSession
 Import-Module ExchangeOnlineManagement
 ```
 
-Once the module is imported, you can use the cmdlets defined in the module to manage Exchange Online and access the audit log data. For example, you can use the Connect-ExchangeOnline cmdlet to connect to Exchange Online, and the Get-UnifiedAuditLog cmdlet to retrieve audit log entries.
+## Option 1 :- If you want to connect with a specific user. 
+
+Command to prompt for a specific user for  your Exchange Online credentials.
+```powershell
+$UserCredential = Get-Credential 
+```
+Command to connect to Exchange Online using the provided credentials. 
+```powershell
+ Connect-ExchangeOnline -Credential $UserCredential -ShowProgress $true 
+```
+## Option 2 :- If you want to connect with credentials in the current session
+Connect to Exchange Online using the credentials in the current session
+```powershell
+Connect-ExchangeOnline
 
 # Connecting with Search-UnifiedAuditLog
 
