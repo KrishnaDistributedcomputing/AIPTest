@@ -149,6 +149,35 @@ foreach ($Record in $Records)
     Write-Host "User Identity: $($Record.AuditData)"
 }
 ```
+
+### ReturnLargeSet
+
+In this script, the Search-UnifiedAuditLog cmdlet is used to search the audit log for entries between the specified start and end times. The ReturnLargeSet parameter is set by specifying the SessionId and SessionCommand parameters in the $parameters object. The results of the search are then looped through and each entry is output to the console.
+
+```powershell 
+# Set the start and end time for the audit log search
+$startTime = "01/01/2022 00:00:00"
+$endTime = "12/31/2022 23:59:59"
+
+# Set the parameters for the search
+$parameters = @{
+    StartDate = $startTime
+    EndDate = $endTime
+    SessionId = "UnifiedAuditLogSearch 01/02/17"
+    SessionCommand = "ReturnLargeSet"
+}
+
+# Perform the search and store the results in a variable
+$results = Search-UnifiedAuditLog @parameters
+
+# Loop through the results and output each entry
+for ($i = 0; $i -lt $results.Count; $i++) {
+    $entry = $results[$i]
+    Write-Output $entry
+}
+```
+
+
 | Event              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | :----------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | PSComputerName     | Computer name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
