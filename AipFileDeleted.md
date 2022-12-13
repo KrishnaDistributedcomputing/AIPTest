@@ -53,16 +53,16 @@ $Operations = "FileDeleted, FileDeletedFirstStageRecycleBin, FileDeletedSecondSt
 $StartDate = (Get-Date).AddDays(-90); $EndDate = (Get-Date) 
 Search-UnifiedAuditLog -Operations $Operations -StartDate $StartDate -EndDate $EndDate -ResultSize 5000 -Formatted
 ```
-## Get the AipFileDeleted events from the last 24 hours
+### Get the AipFileDeleted events from the last 24 hours
 ```powershell
 $events = Search-UnifiedAuditLog -StartDate (Get-Date).AddHours(-24) -EndDate (Get-Date) -RecordType AipFileDeleted
 ```
-## Extract the information you want from the events
+### Extract the information you want from the events
 ```powershell
 $events | Select-Object UserId, FileName, FileType, FilePath, FileDeletionTime
 ```
 
-## Disconnect from Exchange Online
+### Disconnect from Exchange Online
 ```powershell
 Disconnect-ExchangeOnline
 ```
