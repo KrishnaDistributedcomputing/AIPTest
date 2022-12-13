@@ -21,11 +21,15 @@ Before connecting to Unified Audit Log - we need to connect with Exchange Online
 
 Open a PowerShell window and run the Install-Module -Name ExchangeOnlineManagement command to install the Exchange Online Management module. This module provides cmdlets that can be used to manage Exchange Online.
 
+command to prompt for your Exchange Online credentials.
 ```powershell
-Run the $UserCredential = Get-Credential command to prompt for your Exchange Online credentials.
-
-Run the Connect-ExchangeOnline -Credential $UserCredential -ShowProgress $true command to connect to Exchange Online using the provided credentials. 
+Run the $UserCredential = Get-Credential 
 ```
+command to connect to Exchange Online using the provided credentials. 
+Run the Connect-ExchangeOnline -Credential $UserCredential -ShowProgress $true 
+```
+
+## Establishing remote Powershell session
 This will establish a remote PowerShell session with Exchange Online.Once the connection is established, you can run Exchange Online cmdlets to manage your Exchange Online environment. For example, you can run the Get-Mailbox cmdlet to retrieve a list of mailboxes in your Exchange Online organization.
 
 ```powershell
