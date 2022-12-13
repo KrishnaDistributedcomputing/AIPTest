@@ -33,23 +33,14 @@ Connect to Exchange Online using the credentials in the current session
 Connect-ExchangeOnline
 ```
 
-# Connecting with Search-UnifiedAuditLog
+# Extracting AipDiscover
 
 The Search-UnifiedAuditLog cmdlet in PowerShell allows you to search for specific record types in the audit log for Azure Information Protection (AIP). The available record types for AIP are , You can also use the Search-UnifiedAuditLog cmdlet to search the audit log for specific record types or events. For example, the following command will search for all audit log entries that were generated within the last week:
 
 ```powershell
 Search-UnifiedAuditLog -StartDate (Get-Date).AddDays(-7) -EndDate (Get-Date)
 ```
-Following are the record types for AIP.
-
-AzureInformationProtectionAudit: This record type logs events such as when a user applies a label to a document or email, when a label is applied automatically based on a policy, and when a user accesses or views a labeled document or email.
-
-AzureInformationProtectionHeartbeat: This record type logs events related to the health and status of the AIP service, such as when the service starts and stops, when it encounters errors or issues, and when it is being used by users.
-
-AzureInformationProtectionPolicy: This record type logs events related to AIP policies, such as when a policy is created or modified, when a policy is assigned to a user or group, and when a policy is removed.
-
-AzureInformationProtectionUnifiedAudit: This record type logs events related to AIP unified auditing, such as when unified auditing is enabled or disabled, when a unified audit log is accessed or downloaded, and when a unified audit log is deleted or purged.
-
+ 
  
 
 
