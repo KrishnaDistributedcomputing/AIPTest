@@ -52,11 +52,11 @@ Note: This is just an example of how the Search-UnifiedAuditLog cmdlet can be us
 ## Additional Powershell samples
 
 ```powershell
-Search-UnifiedAuditLog -StartDate "9/1/22" -EndDate "10/19/22" -RecordType SharePointFileOperation
+Search-UnifiedAuditLog -StartDate "9/1/22" -EndDate "10/19/22" -RecordType AipDiscover
 ```
 
 ```powershell
-Search-UnifiedAuditLog -Operations FileDeleted -StartDate 4-Nov-2022 -EndDate 5-Dec-2022 -ResultSize 2000
+Search-UnifiedAuditLog -Operations Access -StartDate 1-Jan-2022 -EndDate 5-Dec-2022 -ResultSize 2000
 ```
 
 
