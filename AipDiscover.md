@@ -49,7 +49,7 @@ This will search the Unified Audit Log for the specified date range and return a
 
 Note: This is just an example of how the Search-UnifiedAuditLog cmdlet can be used. You may need to adjust the command and specify additional parameters based on your specific requirements. For more information about the cmdlet and its parameters, you can refer to the Microsoft documentation or use the PowerShell Get-Help command.
 
-Additional Powershell samples
+## Additional Powershell samples
 
 ```powershell
 Search-UnifiedAuditLog -StartDate "9/1/22" -EndDate "10/19/22" -RecordType SharePointFileOperation
