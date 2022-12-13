@@ -1,5 +1,42 @@
 ## AipFileDeleted
 
+AipFileDeleted is a type of event that is recorded in the Office 365 Unified Audit Log. It represents a successful attempt to delete an Azure Information Protection (AIP) labeled file. This event is typically logged when a user with the appropriate permissions uses the AIP client to delete a file that has been labeled with AIP.
+
+Azure Information Protection is a service that allows organizations to classify and label sensitive data, and apply policies to control how that data is accessed and shared. The AipFileDeleted event can be useful for tracking and monitoring the deletion of AIP labeled files, and ensuring that only authorized users are able to delete such files.
+
+Some common attributes of the AipFileDeleted event type in the Unified Audit Log include:
+
+CreationTime: The date and time when the event was logged.
+UserId: The user who performed the delete action.
+ClientIP: The IP address of the client that was used to perform the delete action.
+Operation: The type of operation that was performed, in this case "AipFileDeleted".
+ResultStatus: The result of the operation, either "Success" or "Failure".
+ObjectId: The unique identifier of the file that was deleted.
+You can use the Search-UnifiedAuditLog PowerShell cmdlet to search for AipFileDeleted events in the Unified Audit Log, and use the Select-Object cmdlet to specify which attributes you want to include in the results.
+
+Here is an example of a complex PowerShell script that can be used to extract information from the AipFileDeleted event type in the Office 365 Unified Audit Log:
+
+```powershell
+# Set the date range for the search
+$startDate = Get-Date -Year 2020 -Month 1 -Day 1
+$endDate = Get-Date
+
+# Search the Unified Audit Log for AipFileDeleted events in the specified date range
+$auditEvents = Search-UnifiedAuditLog -StartDate $startDate -EndDate $endDate -Operations AipFileDeleted
+
+# Extract the relevant information from each event
+$results = $auditEvents | Select-Object CreationTime, UserId, ClientIP, Operation, ResultStatus, FileName
+
+# Write the results to a CSV file
+$results | Export-Csv -Path C:\AipFileDeleted-Audit.csv -NoTypeInformation
+```
+This script first sets the date range for the search using the Get-Date cmdlet, and then uses the Search-UnifiedAuditLog cmdlet to search for AipFileDeleted events within that date range. Next, the script uses the Select-Object cmdlet to extract the relevant information from each event, including the creation time, user ID, client IP, operation type, result status, and file name. Finally, the script exports the results to a CSV file using the Export-Csv cmdlet.
+
+This is just one example of how the Search-UnifiedAuditLog cmdlet can be used to extract information from the Unified Audit Log. You may need to adjust the script and specify additional parameters based on your specific requirements. For more information about the cmdlets and their parameters, you can refer to the Microsoft documentation or use the PowerShell Get-Help command.
+
+ 
+
+
 | Event              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | :----------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | PSComputerName     | Computer name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
