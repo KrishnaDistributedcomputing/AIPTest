@@ -59,7 +59,7 @@ Search-UnifiedAuditLog -StartDate "9/1/22" -EndDate "10/19/22" -RecordType AipDi
 Search-UnifiedAuditLog -Operations Access -StartDate 1-Jan-2022 -EndDate 5-Dec-2022 -ResultSize 2000
 ```
 
-
+Attributes of the AipDiscover event
 
 The following table contains information related to Azure Information Protection (AIP) scanner events.
 
