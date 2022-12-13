@@ -8,109 +8,67 @@
 
 ## Structure of  Audit Data
 
+``powershell
+Search-UnifiedAuditLog -RecordType AipDiscover -StartDate (Get-Date).AddDays(-100) -EndDate (Get-Date)
+```
+
 Audit records consist of two parts:
 ### Part 1:- 
 General properties that are populated in the same way by all workloads, and the AuditData property that contains workload-specific information. The general properties include the record type, creation date, operation, and user identifier. 
 
 ```Keyvaule
-RunspaceId   : 0ef341c5-3d59-406d-b94d-0cf944163e86
-RecordType   : AzureActiveDirectoryStsLogon
-CreationDate : 2022-12-12 5:08:58 PM
-UserIds      : admin@M365x23987777.onmicrosoft.com
-Operations   : UserLoggedIn
+RunspaceId   : 136b901e-a6bc-4f24-bb58-5c435090df91
+RecordType   : AipDiscover
+CreationDate : 2022-09-15 5:49:22 PM
+UserIds      : AdeleV@M365x23987777.OnMicrosoft.com
+Operations   : Access
+ResultIndex  : 8
+ResultCount  : 8
+Identity     : 20728aaf-1964-1a4a-bd72-784fa3c12132
+IsValid      : True
+ObjectState  : Unchanged
+
 ```
 ### Part 2:- 
 The AuditData property is where you can find the most important information about an event. Workloads use schemas to describe the properties they insert into audit records, and these schemas are used to help interpret the payload in audit events. It may require some trial and error to fully understand the information in an audit record. A guide to the detailed properties in audit log records can be helpful in this process.
 
 ```json
-{
-  "CreationTime":"2022-12-12T17:08:58",
-  "Id":"a0958885-bd94-4f03-a018-6ce664614000",
-  "Operation":"UserLoggedIn",
-  "OrganizationId":"4b080626-0acc-4940-8af8-bfc836ff1a59",
-  "RecordType":15,
-  "ResultStatus":"Success",
-  "UserKey":"58202808-3c6b-44e3-aef9-eec1aea5108e",
-  "
-               UserType":0,
-  "Version":1,
-  "Workload":"AzureActiveDirectory",
-  "ClientIP":"155.190.0.11",
-  "ObjectId":"00000002-0000-0000-c000-000000000000",
-  "UserId":"admin@M365x23987777.onmicrosoft.com",
-  "AzureActiveDirectoryEventType":1,
-  "ExtendedProperties":[
-    {
-      "Name":"ResultStat
-               usDetail",
-      "Value":"Success"
-    },
-    {
-      "Name":"KeepMeSignedIn",
-      "Value":"true"
-    },
-    {
-      "Name":"UserAgent",
-      "Value":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/108.0.0.0 Safari\/537.36 Edg\/108.0.1462.42"
-    },
-    {
-      "Name":"UserAuthent
-               icationMethod",
-      "Value":"1"
-    },
-    {
-      "Name":"RequestType",
-      "Value":"Login:login"
-    }
-  ],
-  "ModifiedProperties":[
+AuditData:{
+  "SensitivityLabelEventData":{
+    "SensitivityLabelId":"8581574a-c314-42e3-bfdc-a63cf96ed86e"
+  },
+  "SensitiveInfoTypeData":[
     
   ],
-  "Actor":[
-    {
-      "ID":"58202808-3c6b-44e3-aef9-eec1aea5108e",
-      "Type":0
-    },
-    {
-      "ID":"admin@M365x23987777.onmicrosoft.com",
-      "Type":5
-    }
-  ],
-  "ActorContextId":"4b080626-0acc-4940-8a
-               f8-bfc836ff1a59",
-  "ActorIpAddress":"155.190.0.11",
-  "InterSystemsId":"9beae202-8022-4655-b9b7-eb17e3f6e0e1",
-  "IntraSystemId":"a0958885-bd94-4f03-a018-6ce664614000",
-  "SupportTicketId":"",
-  "Target":[
-    {
-      "ID":"00000002-0000-0000-c000-000000000000",
-      "Type":0
-    }
-  ],
-  "TargetCo
-               ntextId":"4b080626-0acc-4940-8af8-bfc836ff1a59",
-  "ApplicationId":"80ccca67-54bd-44ab-8625-4b79c4dc7775",
-  "DeviceProperties":[
-    {
-      "Name":"OS",
-      "Value":"Windows 
-               10"
-    },
-    {
-      "Name":"BrowserType",
-      "Value":"Edge"
-    },
-    {
-      "Name":"IsCompliantAndManaged",
-      "Value":"False"
-    },
-    {
-      "Name":"SessionId",
-      "Value":"bb408fbc-9fe4-42c8-9d66-083fbd27e7c6"
-    }
-  ],
-  "ErrorNumber":"50140"
+  "ProtectionEventData":{
+    "IsProtected":false
+  },
+  "Common":{
+    "ApplicationId":"c00e9d32-3c8d-4a7d-832b-029040e7db99",
+    "ApplicationName":"Microsoft 
+               Azure Information Protection Word Add-In",
+    "ProcessName":"WINWORD",
+    "Platform":1,
+    "DeviceName":"AdeleVanceWindo",
+    "Location":"On-premises file shares",
+    "ProductVersion":"2.13.49.0"
+  },
+  "DataState":"Use",
+  "ObjectId":"C:\\452Documentcreated.docx",
+  "UserId":"AdeleV@M36
+               5x23987777.OnMicrosoft.com",
+  "ClientIP":"20.237.230.167",
+  "Id":"20728aaf-1964-1a4a-bd72-784fa3c12132",
+  "RecordType":93,
+  "CreationTime":"2022-09-15T17:49:22",
+  "Operation":"Access",
+  "OrganizationId":"4b080626-0acc-4940-8af8-bfc836ff1a59",
+  "UserType":0,
+  "UserKey":"Ad
+               eleV@M365x23987777.OnMicrosoft.com",
+  "Workload":"Aip",
+  "Version":1,
+  "Scope":1
 }
 ```
 
