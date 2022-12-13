@@ -26,6 +26,7 @@ command to prompt for your Exchange Online credentials.
 Run the $UserCredential = Get-Credential 
 ```
 command to connect to Exchange Online using the provided credentials. 
+```powershell
 Run the Connect-ExchangeOnline -Credential $UserCredential -ShowProgress $true 
 ```
 
