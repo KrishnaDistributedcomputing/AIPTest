@@ -36,10 +36,9 @@ Command to connect to Exchange Online using the provided credentials.
 Connect to Exchange Online using the credentials in the current session
 ```powershell
 Connect-ExchangeOnline
-
+```
 
 ## Extracting AipHeartBeat
-
 
 The Search-UnifiedAuditLog cmdlet in PowerShell allows you to search for specific record types in the audit log. To search for AIP HeartBeat events, you would use the AzureInformationProtectionHeartbeat record type.
 
