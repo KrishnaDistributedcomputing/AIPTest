@@ -1,6 +1,9 @@
+
+
 ## Managing Large Amounts of Audit Data
 
-To manage large amounts of audit data from the Search-UnifiedAuditLog cmdlet, you can follow these steps:
+To manage large volumes of data from the Search-UnifiedAuditLog cmdlet, you can use the ReturnLargeSet and ReturnNextPreviewPage parameters. These parameters allow you to perform searches that return large sets of results, and then retrieve the next page of results in subsequent searches.
+ 
 
 1. Use the SessionId parameter to identify a search session and specify the number of pages you want to retrieve. This will allow the cmdlet to fetch multiple pages of data and return them to you.
 
