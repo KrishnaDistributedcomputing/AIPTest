@@ -109,6 +109,16 @@ To manage large amounts of audit data from the Search-UnifiedAuditLog cmdlet, yo
  
 5. Regularly review and update your search criteria and audit data management processes to ensure that you are capturing the right data and efficiently managing it. This will help you stay on top of any potential security issues and improve the overall security of your organization
  
+ 
+ Search-UnifiedAuditLog has two parameters to support the retrieval of large data sets:
+ 
+: The SessionId parameter holds a string value to identify a search session. You can use any value you like from a simple number to a GUID generated with the New-Guid cmdlet. The presence of a session identifier tells Search-UnifiedAuditLog that it might need to fetch several pages of data.
+
+: The SessionCommand parameter tells Search-UnifiedAuditLog how to handle large amounts of audit data. The returned data might contain duplicate records. This parameter can be set to:
+: ReturnLargeSet: The audit records returned are unsorted. You can fetch up to 50,000 audit records using this method but must remember to sort the data once it is all fetched.
+
+: ReturnNextPreviewPage: Search-UnifiedAuditLog returns audit records sorted by date. However, you can fetch only a maximum of 5,000 records using this method. If more 
+matching records exist, attempts to fetch the data will result in an er
 
 
 | Event              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
