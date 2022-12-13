@@ -1,5 +1,7 @@
 ## AipProtectionAction
 
+AIP offers a feature called "Protection Action" that allows organizations to set rules and policies for how their data should be protected. This can include specifying which data should be encrypted, setting restrictions on who can access certain data, and defining actions that should be taken if certain conditions are met. In short, AIP Protection Action is a feature within Azure Information Protection that helps organizations protect their sensitive data by enabling them to set rules and policies for data protection.
+
 # Connecting with ExchangeOnline Management
 
 The Import-Module cmdlet in PowerShell allows you to import a PowerShell module into the current session. This allows you to use the cmdlets and functions defined in the module.
