@@ -1,4 +1,11 @@
 
+## Finding the right events
+
+To find the right events when searching the audit log, it's important to know what you're looking for and use the appropriate filters and parameters. This can be challenging because the audit log can contain a large number of events, and searching for specific actions can be like searching for a small object in a large and disordered list of data.
+
+One way to approach this problem is to take steps to generate an audit event for the action you're interested in, wait for 60 minutes or so to allow the event to be ingested into the audit log, and then search for events within that time period. 
+
+This will give you a smaller set of events to work with, which you can then analyze and use to perform further searches. It's also a good idea to use the **Operations** / **RecordTypes**  values logged for the events to help you refine your searches and find the specific events you're looking for
 
 ## Managing Large Amounts of Audit Data
 
