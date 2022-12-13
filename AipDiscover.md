@@ -34,6 +34,7 @@ Command to connect to Exchange Online using the provided credentials.
 Connect to Exchange Online using the credentials in the current session
 ```powershell
 Connect-ExchangeOnline
+```
 
 # Extracting information from Search_unifiedauditlog   
 
