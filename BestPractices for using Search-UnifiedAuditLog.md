@@ -1,5 +1,5 @@
 
-## Finding the right events
+## Finding the correct set events
 
 To find the right events when searching the audit log, it's important to know what you're looking for and use the appropriate filters and parameters. This can be challenging because the audit log can contain a large number of events, and searching for specific actions can be like searching for a small object in a large and disordered list of data.
 
