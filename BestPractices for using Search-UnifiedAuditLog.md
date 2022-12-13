@@ -81,7 +81,16 @@ To find the right events when searching the audit log, it's important to know wh
 
 One way to approach this problem is to take steps to generate an audit event for the action you're interested in, wait for 60 minutes or so to allow the event to be ingested into the audit log, and then search for events within that time period. 
 
-This will give you a smaller set of events to work with, which you can then analyze and use to perform further searches. It's also a good idea to use the **Operations** / **RecordTypes**  values logged for the events to help you refine your searches and find the specific events you're looking for
+This will give you a smaller set of events to work with, which you can then analyze and use to perform further searches. It's also a good idea to use the **Operations** / **RecordTypes**  values logged for the events to help you refine your searches and find the specific events you're looking for.
+
+Following is an example of filtering data by looking for very specific operations and in a given date range.
+
+```powershell
+$Operations = ("SensitivityLabelUpdated", "SensitivityLabelApplied", "FileSensitivityLabelApplied")
+$StartDate = (Get-Date).AddDays(-90)
+$EndDate = (Get-Date).AddDays(1)
+[Array]$Records = Search-UnifiedAuditLog -StartDate $StartDate -EndDate $EndDate -Formatted -ResultSize 5000 -Operations $Operations
+```
 
 ## Managing Large Amounts of Audit Data
 
