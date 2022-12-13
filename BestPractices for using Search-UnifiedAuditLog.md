@@ -13,6 +13,7 @@ Search-UnifiedAuditLog -RecordType AipDiscover -StartDate (Get-Date).AddDays(-10
 ```
 
 Audit records consist of two parts:
+
 ### Part 1:- 
 General properties that are populated in the same way by all workloads, and the AuditData property that contains workload-specific information. The general properties include the record type, creation date, operation, and user identifier. 
 
@@ -27,8 +28,8 @@ ResultCount  : 8
 Identity     : 20728aaf-1964-1a4a-bd72-784fa3c12132
 IsValid      : True
 ObjectState  : Unchanged
-
 ```
+
 ### Part 2:- 
 The AuditData property is where you can find the most important information about an event. Workloads use schemas to describe the properties they insert into audit records, and these schemas are used to help interpret the payload in audit events. It may require some trial and error to fully understand the information in an audit record. A guide to the detailed properties in audit log records can be helpful in this process.
 
