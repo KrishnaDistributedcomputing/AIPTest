@@ -1,5 +1,11 @@
 ## AipSensitivityLabelAction
 
+Azure Information Protection (AIP) sensitivity label events are actions or activities that are triggered when a sensitivity label is applied to a document or email. These events are defined by the organization using AIP, and can be used to automate various tasks or processes based on the sensitivity labels applied to sensitive data. For example, an organization might set up an event that automatically encrypts a document if it's labeled as "confidential," or that sends a notification to the data owner if a document is labeled as "internal" and shared outside the organization. These events can help organizations ensure that their sensitive data is protected and used in compliance with their security policies.
+
+```powershell
+Search-UnifiedAuditLog -RecordType 'AipSensitivityLabelAction'  -StartDate "12/1/2022" -EndDate "12/31/2022" -ResultSize 1000
+```
+
 The following table contains information related to AIP sensitivity label events.
 
 | Event                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
