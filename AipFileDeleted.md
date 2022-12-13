@@ -40,7 +40,7 @@ Command to connect to Exchange Online using the provided credentials.
 ```powershell
  Connect-ExchangeOnline -Credential $UserCredential -ShowProgress $true 
 ```
-## Option 2 :- If you want to connect with a specific user. 
+## Option 2 :- If you want to connect with credentials in the current session
 Connect to Exchange Online using the credentials in the current session
 ```powershell
 Connect-ExchangeOnline
