@@ -33,6 +33,10 @@ Run the Connect-ExchangeOnline -Credential $UserCredential -ShowProgress $true
 ## Establishing remote Powershell session
 This will establish a remote PowerShell session with Exchange Online.Once the connection is established, you can run Exchange Online cmdlets to manage your Exchange Online environment. For example, you can run the Get-Mailbox cmdlet to retrieve a list of mailboxes in your Exchange Online organization.
 
+This script will import the Exchange Online cmdlets, connect to Exchange Online using the current user's credentials, get the AipFileDeleted events from the last 24 hours, extract the user ID, file name, file type, file path, and file deletion time from the events, and then disconnect from Exchange Online.
+
+You can modify this script to suit your specific needs, such as changing the time period for the events you want to retrieve, or adding additional fields to extract from the events.
+
 ```powershell
 # Import the Exchange Online cmdlets
 Import-Module ExchangeOnlineManagement
@@ -50,9 +54,6 @@ $events | Select-Object UserId, FileName, FileType, FilePath, FileDeletionTime
 Disconnect-ExchangeOnline
 ```
 
-This script will import the Exchange Online cmdlets, connect to Exchange Online using the current user's credentials, get the AipFileDeleted events from the last 24 hours, extract the user ID, file name, file type, file path, and file deletion time from the events, and then disconnect from Exchange Online.
-
-You can modify this script to suit your specific needs, such as changing the time period for the events you want to retrieve, or adding additional fields to extract from the events.
 
 # Additional samples
 
