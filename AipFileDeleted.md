@@ -15,9 +15,10 @@ Some common attributes of the AipFileDeleted event type in the Unified Audit Log
 
 Before connecting to Unified Audit Log - we need to connect with Exchange Online using PowerShell, you can use the following steps:
 
-```
+ 
 
 ## Establishing remote Powershell session
+
 This will establish a remote PowerShell session with Exchange Online.Once the connection is established, you can run Exchange Online cmdlets to manage your Exchange Online environment. For example, you can run the Get-Mailbox cmdlet to retrieve a list of mailboxes in your Exchange Online organization.
 
 This script will import the Exchange Online cmdlets, connect to Exchange Online using the current user's credentials, get the AipFileDeleted events from the last 24 hours, extract the user ID, file name, file type, file path, and file deletion time from the events, and then disconnect from Exchange Online.
