@@ -88,6 +88,9 @@ $StartDate = (Get-Date).AddDays(-90)
 $EndDate = (Get-Date).AddDays(1)
 [Array]$Records = Search-UnifiedAuditLog -StartDate $StartDate -EndDate $EndDate -Formatted -ResultSize 5000 -Operations $Operations
 ```
+```powershell
+Search-UnifiedAuditLog -StartDate (Get-Date).AddDays(-100) -EndDate (Get-Date) -RecordType AipDiscover -Operations Access -ResultSize 5 -Formatted | Format-Table UserIds, CreationDate, Operations
+ ```
 
 ## Managing Large Amounts of Audit Data
 
