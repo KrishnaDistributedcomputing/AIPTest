@@ -31,7 +31,7 @@ ObjectState  : Unchanged
 ```
 
 ### Part 2:- 
-The AuditData property is where you can find the most important information about an event. Workloads use schemas to describe the properties they insert into audit records, and these schemas are used to help interpret the payload in audit events. It may require some trial and error to fully understand the information in an audit record. A guide to the detailed properties in audit log records can be helpful in this process.
+The AuditData property is where you can find the most important information about an event. Workloads use schemas to describe the properties they insert into audit records, and these schemas are used to help interpret the payload in audit events. It may require some trial and error to fully understand the information in an audit record. A guide to the detailed properties in audit log records can be helpful in this process. The details about the action taken by a user are stored in JavaScript Object Notation (JSON) format, so further processing is necessary to format the data to extract the information.
 
 ```json
 AuditData:
@@ -92,6 +92,15 @@ $EndDate = (Get-Date).AddDays(1)
 ```powershell
 Search-UnifiedAuditLog -StartDate (Get-Date).AddDays(-100) -EndDate (Get-Date) -RecordType AipDiscover -Operations Access -ResultSize 5 -Formatted | Format-Table UserIds, CreationDate, Operations
  ```
+ 
+ ```powershell
+$Records = Search-UnifiedAuditLog -RecordType AipDiscover -StartDate (Get-Date).AddDays(-100) -EndDate (Get-Date)
+```
+```powershell
+$Records | Where-Object {$_.CreationDate -eq "2022-09-15 5:49:22 PM"}
+```
+
+
 
 ## Managing Large Amounts of Audit Data
 
