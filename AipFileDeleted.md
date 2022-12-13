@@ -24,14 +24,13 @@ This script will import the Exchange Online cmdlets, connect to Exchange Online 
 
 You can modify this script to suit your specific needs, such as changing the time period for the events you want to retrieve, or adding additional fields to extract from the events.
 
+Open a PowerShell window and run the Install-Module -Name ExchangeOnlineManagement command to install the Exchange Online Management module. This module provides cmdlets that can be used to manage Exchange Online.
+
 ```powershell
 # Import the Exchange Online cmdlets
 Import-Module ExchangeOnlineManagement
 
-
-Open a PowerShell window and run the Install-Module -Name ExchangeOnlineManagement command to install the Exchange Online Management module. This module provides cmdlets that can be used to manage Exchange Online.
-
-### Option 1 :- If you want to connect with a specific user. 
+# Option 1 :- If you want to connect with a specific user. 
 
 Command to prompt for a specific user for  your Exchange Online credentials.
 ```powershell
@@ -41,7 +40,7 @@ Command to connect to Exchange Online using the provided credentials.
 ```powershell
 Run the Connect-ExchangeOnline -Credential $UserCredential -ShowProgress $true 
 ```
-### Option 2 :- If you want to connect with a specific user. 
+# Option 2 :- If you want to connect with a specific user. 
 Connect to Exchange Online using the credentials in the current session
 ```powershell
 
