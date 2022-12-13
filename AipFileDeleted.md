@@ -30,7 +30,7 @@ Open a PowerShell window and run the Install-Module -Name ExchangeOnlineManageme
 Import-Module ExchangeOnlineManagement
 ```
 
-# Option 1 :- If you want to connect with a specific user. 
+## Option 1 :- If you want to connect with a specific user. 
 
 Command to prompt for a specific user for  your Exchange Online credentials.
 ```powershell
@@ -40,13 +40,12 @@ Command to connect to Exchange Online using the provided credentials.
 ```powershell
 Run the Connect-ExchangeOnline -Credential $UserCredential -ShowProgress $true 
 ```
-# Option 2 :- If you want to connect with a specific user. 
+## Option 2 :- If you want to connect with a specific user. 
 Connect to Exchange Online using the credentials in the current session
 ```powershell
-
 Connect-ExchangeOnline
 ```
-# Finding AipFileDeleted events 
+## Finding AipFileDeleted events 
 You can use the Search-UnifiedAuditLog PowerShell cmdlet to search for AipFileDeleted events in the Unified Audit Log, and use the Select-Object cmdlet to specify which attributes you want to include in the results.
 
 ```powershell
@@ -63,12 +62,12 @@ $events = Search-UnifiedAuditLog -StartDate (Get-Date).AddHours(-24) -EndDate (G
 $events | Select-Object UserId, FileName, FileType, FilePath, FileDeletionTime
 ```
 
-# Disconnect from Exchange Online
+## Disconnect from Exchange Online
 ```powershell
 Disconnect-ExchangeOnline
 ```
 
-# Additional samples
+## Additional samples
 
 This script first sets the date range for the search using the Get-Date cmdlet, and then uses the Search-UnifiedAuditLog cmdlet to search for AipFileDeleted events within that date range. Next, the script uses the Select-Object cmdlet to extract the relevant information from each event, including the creation time, user ID, client IP, operation type, result status, and file name. Finally, the script exports the results to a CSV file using the Export-Csv cmdlet.
 
