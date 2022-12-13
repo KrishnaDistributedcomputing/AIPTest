@@ -121,7 +121,29 @@ To manage large amounts of audit data from the Search-UnifiedAuditLog cmdlet, yo
 
  > **ReturnNextPreviewPage** : Search-UnifiedAuditLog returns audit records sorted by date. However, you can fetch only a maximum of 5,000 records using this method. If more matching records exist, attempts to fetch the data will result in an er
 
+### SessionId
+```powershell
+# Import the Exchange Online Management module
+Import-Module ExchangeOnlineManagement
+# Create a remote connection to Exchange Online
+$UserCredential = Get-Credential
+Connect-IPPSSession
+# Search the Unified Audit Log for entries with the specified SessionID
+$SessionId = "5b5a5a5a-5b5b-5c5c-5d5d-5e5e5e5e5e5e"
+$StartDate = (Get-Date).AddDays(-90)
+$EndDate = (Get-Date).AddDays(1)
+[Array]$Records = Search-UnifiedAuditLog -StartDate $StartDate -EndDate $EndDate -SessionId $SessionId
 
+# Scan through the array of records
+foreach ($Record in $Records)
+{
+    # Process each record as needed
+    # For example, you could print the operation name and user identity
+    Write-Host "Operation: $($Record.RecordType)"
+    Write-Host "User Identity: $($Record.Operations)"
+    Write-Host "User Identity: $($Record.AuditData)"
+}
+```
 | Event              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | :----------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | PSComputerName     | Computer name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
