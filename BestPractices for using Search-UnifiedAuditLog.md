@@ -2,6 +2,23 @@
 
 Audit records consist of two parts:
 
+```Keyvaule
+RunspaceId   : 0ef341c5-3d59-406d-b94d-0cf944163e86
+RecordType   : AzureActiveDirectoryStsLogon
+CreationDate : 2022-12-12 5:08:58 PM
+UserIds      : admin@M365x23987777.onmicrosoft.com
+Operations   : UserLoggedIn
+```
+```json
+{"CreationTime":"2022-12-12T17:08:58","Id":"a0958885-bd94-4f03-a018-6ce664614000","Operation":"UserLoggedIn","OrganizationId":"4b080626-0acc-4940-8af8-bfc836ff1a59","RecordType":15,"ResultStatus":"Success","UserKey":"58202808-3c6b-44e3-aef9-eec1aea5108e","
+               UserType":0,"Version":1,"Workload":"AzureActiveDirectory","ClientIP":"155.190.0.11","ObjectId":"00000002-0000-0000-c000-000000000000","UserId":"admin@M365x23987777.onmicrosoft.com","AzureActiveDirectoryEventType":1,"ExtendedProperties":[{"Name":"ResultStat
+               usDetail","Value":"Success"},{"Name":"KeepMeSignedIn","Value":"true"},{"Name":"UserAgent","Value":"Mozilla\/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/108.0.0.0 Safari\/537.36 Edg\/108.0.1462.42"},{"Name":"UserAuthent
+               icationMethod","Value":"1"},{"Name":"RequestType","Value":"Login:login"}],"ModifiedProperties":[],"Actor":[{"ID":"58202808-3c6b-44e3-aef9-eec1aea5108e","Type":0},{"ID":"admin@M365x23987777.onmicrosoft.com","Type":5}],"ActorContextId":"4b080626-0acc-4940-8a
+               f8-bfc836ff1a59","ActorIpAddress":"155.190.0.11","InterSystemsId":"9beae202-8022-4655-b9b7-eb17e3f6e0e1","IntraSystemId":"a0958885-bd94-4f03-a018-6ce664614000","SupportTicketId":"","Target":[{"ID":"00000002-0000-0000-c000-000000000000","Type":0}],"TargetCo
+               ntextId":"4b080626-0acc-4940-8af8-bfc836ff1a59","ApplicationId":"80ccca67-54bd-44ab-8625-4b79c4dc7775","DeviceProperties":[{"Name":"OS","Value":"Windows 
+               10"},{"Name":"BrowserType","Value":"Edge"},{"Name":"IsCompliantAndManaged","Value":"False"},{"Name":"SessionId","Value":"bb408fbc-9fe4-42c8-9d66-083fbd27e7c6"}],"ErrorNumber":"50140"}
+```
+
 ### Part 1:- 
 General properties that are populated in the same way by all workloads, and the AuditData property that contains workload-specific information. The general properties include the record type, creation date, operation, and user identifier. 
 ### Part 2:- 
