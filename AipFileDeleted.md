@@ -31,18 +31,20 @@ Import-Module ExchangeOnlineManagement
 
 Open a PowerShell window and run the Install-Module -Name ExchangeOnlineManagement command to install the Exchange Online Management module. This module provides cmdlets that can be used to manage Exchange Online.
 
-** Option 1 :- If you want to connect with a specific user. **
-command to prompt for your Exchange Online credentials.
+### Option 1 :- If you want to connect with a specific user. 
+
+Command to prompt for a specific user for  your Exchange Online credentials.
 ```powershell
 Run the $UserCredential = Get-Credential 
 ```
-command to connect to Exchange Online using the provided credentials. 
+Command to connect to Exchange Online using the provided credentials. 
 ```powershell
 Run the Connect-ExchangeOnline -Credential $UserCredential -ShowProgress $true 
 ```
-** Option 2 :- If you want to connect with a specific user.** 
-# Connect to Exchange Online using the credentials in the current session
+### Option 2 :- If you want to connect with a specific user. 
+Connect to Exchange Online using the credentials in the current session
 ```powershell
+
 Connect-ExchangeOnline
 ```
 # Finding AipFileDeleted events 
@@ -53,7 +55,6 @@ $Operations = "FileDeleted, FileDeletedFirstStageRecycleBin, FileDeletedSecondSt
 $StartDate = (Get-Date).AddDays(-90); $EndDate = (Get-Date) 
 Search-UnifiedAuditLog -Operations $Operations -StartDate $StartDate -EndDate $EndDate -ResultSize 5000 -Formatted
 ```
-
 # Get the AipFileDeleted events from the last 24 hours
 $events = Search-UnifiedAuditLog -StartDate (Get-Date).AddHours(-24) -EndDate (Get-Date) -RecordType AipFileDeleted
 
@@ -64,8 +65,10 @@ $events | Select-Object UserId, FileName, FileType, FilePath, FileDeletionTime
 Disconnect-ExchangeOnline
 ```
 
-
 # Additional samples
+
+This script first sets the date range for the search using the Get-Date cmdlet, and then uses the Search-UnifiedAuditLog cmdlet to search for AipFileDeleted events within that date range. Next, the script uses the Select-Object cmdlet to extract the relevant information from each event, including the creation time, user ID, client IP, operation type, result status, and file name. Finally, the script exports the results to a CSV file using the Export-Csv cmdlet.
+
 
 ```powershell
 # Set the date range for the search
@@ -81,8 +84,6 @@ $results = $auditEvents | Select-Object CreationTime, UserId, ClientIP, Operatio
 # Write the results to a CSV file
 $results | Export-Csv -Path C:\AipFileDeleted-Audit.csv -NoTypeInformation
 ```
-This script first sets the date range for the search using the Get-Date cmdlet, and then uses the Search-UnifiedAuditLog cmdlet to search for AipFileDeleted events within that date range. Next, the script uses the Select-Object cmdlet to extract the relevant information from each event, including the creation time, user ID, client IP, operation type, result status, and file name. Finally, the script exports the results to a CSV file using the Export-Csv cmdlet.
-
 This is just one example of how the Search-UnifiedAuditLog cmdlet can be used to extract information from the Unified Audit Log. You may need to adjust the script and specify additional parameters based on your specific requirements. For more information about the cmdlets and their parameters, you can refer to the Microsoft documentation or use the PowerShell Get-Help command.
 
 ## Managing Large Amounts of Audit Data
