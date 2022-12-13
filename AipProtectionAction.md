@@ -31,11 +31,8 @@ AzureInformationProtectionPolicy: This record type logs events related to AIP po
 
 AzureInformationProtectionUnifiedAudit: This record type logs events related to AIP unified auditing, such as when unified auditing is enabled or disabled, when a unified audit log is accessed or downloaded, and when a unified audit log is deleted or purged.
 
-You can use the -RecordType parameter of the Search-UnifiedAuditLog cmdlet to specify the record type you want to search for. For example, the following command will search for all AIP HeartBeat events that were generated within the last week:
+ 
 
- ```powershell
- Search-UnifiedAuditLog -RecordType AzureInformationProtectionHeartbeat -StartDate (Get-Date).AddDays(-7) -EndDate (Get-Date)
-```
 
 | Event              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | :----------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
