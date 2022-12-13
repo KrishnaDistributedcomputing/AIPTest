@@ -16,6 +16,18 @@ You can use the Search-UnifiedAuditLog PowerShell cmdlet to search for AipFileDe
 
 Here is an example of a complex PowerShell script that can be used to extract information from the AipFileDeleted event type in the Office 365 Unified Audit Log:
 
+Before connecting to Unified Audit Log - we need to connect with Exchange Online using PowerShell, you can use the following steps:
+
+Open a PowerShell window and run the Install-Module -Name ExchangeOnlineManagement command to install the Exchange Online Management module. This module provides cmdlets that can be used to manage Exchange Online.
+
+```powershell
+Run the $UserCredential = Get-Credential command to prompt for your Exchange Online credentials.
+
+Run the Connect-ExchangeOnline -Credential $UserCredential -ShowProgress $true command to connect to Exchange Online using the provided credentials. This will establish a remote PowerShell session with Exchange Online.
+```
+
+Once the connection is established, you can run Exchange Online cmdlets to manage your Exchange Online environment. For example, you can run the Get-Mailbox cmdlet to retrieve a list of mailboxes in your Exchange Online organization.
+
 ```powershell
 # Set the date range for the search
 $startDate = Get-Date -Year 2020 -Month 1 -Day 1
