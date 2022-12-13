@@ -6,12 +6,13 @@ Azure Information Protection is a service that allows organizations to classify 
 
 Some common attributes of the AipFileDeleted event type in the Unified Audit Log include:
 
-CreationTime: The date and time when the event was logged.
-UserId: The user who performed the delete action.
-ClientIP: The IP address of the client that was used to perform the delete action.
-Operation: The type of operation that was performed, in this case "AipFileDeleted".
-ResultStatus: The result of the operation, either "Success" or "Failure".
-ObjectId: The unique identifier of the file that was deleted.
+1. CreationTime: The date and time when the event was logged.
+2.  UserId: The user who performed the delete action.
+3. ClientIP: The IP address of the client that was used to perform the delete action.
+4. Operation: The type of operation that was performed, in this case "AipFileDeleted".
+5. ResultStatus: The result of the operation, either "Success" or "Failure".
+6. ObjectId: The unique identifier of the file that was deleted.
+
 You can use the Search-UnifiedAuditLog PowerShell cmdlet to search for AipFileDeleted events in the Unified Audit Log, and use the Select-Object cmdlet to specify which attributes you want to include in the results.
 
 Here is an example of a complex PowerShell script that can be used to extract information from the AipFileDeleted event type in the Office 365 Unified Audit Log:
