@@ -23,10 +23,32 @@ Open a PowerShell window and run the Install-Module -Name ExchangeOnlineManageme
 ```powershell
 Run the $UserCredential = Get-Credential command to prompt for your Exchange Online credentials.
 
-Run the Connect-ExchangeOnline -Credential $UserCredential -ShowProgress $true command to connect to Exchange Online using the provided credentials. This will establish a remote PowerShell session with Exchange Online.
+Run the Connect-ExchangeOnline -Credential $UserCredential -ShowProgress $true command to connect to Exchange Online using the provided credentials. 
+```
+This will establish a remote PowerShell session with Exchange Online.Once the connection is established, you can run Exchange Online cmdlets to manage your Exchange Online environment. For example, you can run the Get-Mailbox cmdlet to retrieve a list of mailboxes in your Exchange Online organization.
+
+```powershell
+# Import the Exchange Online cmdlets
+Import-Module ExchangeOnlineManagement
+
+# Connect to Exchange Online using the credentials in the current session
+Connect-ExchangeOnline
+
+# Get the AipFileDeleted events from the last 24 hours
+$events = Search-UnifiedAuditLog -StartDate (Get-Date).AddHours(-24) -EndDate (Get-Date) -RecordType AipFileDeleted
+
+# Extract the information you want from the events
+$events | Select-Object UserId, FileName, FileType, FilePath, FileDeletionTime
+
+# Disconnect from Exchange Online
+Disconnect-ExchangeOnline
 ```
 
-Once the connection is established, you can run Exchange Online cmdlets to manage your Exchange Online environment. For example, you can run the Get-Mailbox cmdlet to retrieve a list of mailboxes in your Exchange Online organization.
+This script will import the Exchange Online cmdlets, connect to Exchange Online using the current user's credentials, get the AipFileDeleted events from the last 24 hours, extract the user ID, file name, file type, file path, and file deletion time from the events, and then disconnect from Exchange Online.
+
+You can modify this script to suit your specific needs, such as changing the time period for the events you want to retrieve, or adding additional fields to extract from the events.
+
+# Additional samples
 
 ```powershell
 # Set the date range for the search
