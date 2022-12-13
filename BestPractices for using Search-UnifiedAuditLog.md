@@ -1,6 +1,8 @@
 ## Structure of  Audit Data
 
 Audit records consist of two parts:
+### Part 1:- 
+General properties that are populated in the same way by all workloads, and the AuditData property that contains workload-specific information. The general properties include the record type, creation date, operation, and user identifier. 
 
 ```Keyvaule
 RunspaceId   : 0ef341c5-3d59-406d-b94d-0cf944163e86
@@ -9,6 +11,9 @@ CreationDate : 2022-12-12 5:08:58 PM
 UserIds      : admin@M365x23987777.onmicrosoft.com
 Operations   : UserLoggedIn
 ```
+### Part 2:- 
+The AuditData property is where you can find the most important information about an event. Workloads use schemas to describe the properties they insert into audit records, and these schemas are used to help interpret the payload in audit events. It may require some trial and error to fully understand the information in an audit record. A guide to the detailed properties in audit log records can be helpful in this process.
+
 ```json
 {
   "CreationTime":"2022-12-12T17:08:58",
@@ -101,10 +106,7 @@ Operations   : UserLoggedIn
 }
 ```
 
-### Part 1:- 
-General properties that are populated in the same way by all workloads, and the AuditData property that contains workload-specific information. The general properties include the record type, creation date, operation, and user identifier. 
-### Part 2:- 
-The AuditData property is where you can find the most important information about an event. Workloads use schemas to describe the properties they insert into audit records, and these schemas are used to help interpret the payload in audit events. It may require some trial and error to fully understand the information in an audit record. A guide to the detailed properties in audit log records can be helpful in this process.
+
 
 ## Finding the correct set events
 
