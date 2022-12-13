@@ -29,7 +29,7 @@ To fetch a large amount of audit data, follow these steps:
 4. Save the data from each run of Search-UnifiedAuditLog.
 5. After all the pages have been fetched, sort the data by date and export it to a CSV file.
  
- ## Reteriving large data set using  Search-UnifiedAuditLog  
+ ## Examples of Reteriving large data set using  Search-UnifiedAuditLog using SessionID and SessionCommand
  
  Search-UnifiedAuditLog has two parameters to support the retrieval of large data sets:
  1. SessionID
