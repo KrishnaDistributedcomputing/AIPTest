@@ -110,10 +110,15 @@ To manage large amounts of audit data from the Search-UnifiedAuditLog cmdlet, yo
  
 5. Regularly review and update your search criteria and audit data management processes to ensure that you are capturing the right data and efficiently managing it. This will help you stay on top of any potential security issues and improve the overall security of your organization
  
+ ## Reteriving large data set using  Search-UnifiedAuditLog  
  
  Search-UnifiedAuditLog has two parameters to support the retrieval of large data sets:
+ 1. SessionID
+ 2. SessionCommand
  
- The **SessionId** parameter holds a string value to identify a search session. You can use any value you like from a simple number to a GUID generated with the New-Guid cmdlet. The presence of a session identifier tells Search-UnifiedAuditLog that it might need to fetch several pages of data.
+ Both SessionID and SessionCommand can be combined to process large datasets.
+ 
+ The **SessionId** parameter holds a string value to identify a search session. You can use any value you like from a simple number to a GUID generated with the New-  Guid cmdlet. The presence of a session identifier tells Search-UnifiedAuditLog that it might need to fetch several pages of data.
   ```powershell
   eg.
   $SessionId = "5b5a5a5a-5b5b-5c5c-5d5d-5e5e5e5e5e5e"
