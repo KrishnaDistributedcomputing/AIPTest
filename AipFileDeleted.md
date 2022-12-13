@@ -126,8 +126,8 @@ The **SessionCommand** parameter tells Search-UnifiedAuditLog how to handle larg
 
  > **ReturnNextPreviewPage** : Search-UnifiedAuditLog returns audit records sorted by date. However, you can fetch only a maximum of 5,000 records using this method.  The maximum number of records returned through use of either paging or the ResultSize parameter is 5,000 records.
 
-**Note**
-==Always use the same SessionCommand value for a given SessionId value. Don't switch between ReturnLargeSet and ReturnNextPreviewPage for the same session ID. Otherwise, the output is limited to 10,000 results.==
+#### **Note**
+Always use the same SessionCommand value for a given SessionId value. Don't switch between ReturnLargeSet and ReturnNextPreviewPage for the same session ID. Otherwise, the output is limited to 10,000 results
 
 ### SessionId
 
