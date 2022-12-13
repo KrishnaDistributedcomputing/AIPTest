@@ -34,7 +34,8 @@ ObjectState  : Unchanged
 The AuditData property is where you can find the most important information about an event. Workloads use schemas to describe the properties they insert into audit records, and these schemas are used to help interpret the payload in audit events. It may require some trial and error to fully understand the information in an audit record. A guide to the detailed properties in audit log records can be helpful in this process.
 
 ```json
-AuditData:{
+AuditData:
+{
   "SensitivityLabelEventData":{
     "SensitivityLabelId":"8581574a-c314-42e3-bfdc-a63cf96ed86e"
   },
