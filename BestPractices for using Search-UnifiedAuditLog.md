@@ -8,7 +8,7 @@
 
 ## Structure of  Audit Data
 
-``powershell
+```powershell
 Search-UnifiedAuditLog -RecordType AipDiscover -StartDate (Get-Date).AddDays(-100) -EndDate (Get-Date)
 ```
 
