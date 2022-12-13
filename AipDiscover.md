@@ -43,7 +43,7 @@ The Search-UnifiedAuditLog cmdlet is a PowerShell command that can be used to se
 To extract the AIPDiscover event from the Unified Audit Log using PowerShell, you can use the following command:
 
 ```powershell
-Search-UnifiedAuditLog -StartDate <start date> -EndDate <end date> -Operations AIPDiscover | Export-Csv -Path <output file>
+Search-UnifiedAuditLog -RecordType AipDiscover -StartDate (Get-Date).AddDays(-100) -EndDate (Get-Date) | Export-Csv -Path <output file>
 ```
 This will search the Unified Audit Log for the specified date range and return any events with the operation type "AIPDiscover". The results will be exported to a CSV file at the specified path.
 
