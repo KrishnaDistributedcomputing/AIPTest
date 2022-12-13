@@ -1,3 +1,13 @@
+## Understanding Search-UnifiedAuditLog 
+
+The audit log is a tool that records events from a range of workloads. The Search-UnifiedAuditLog cmdlet can be used to search and retrieve data from the audit log. It's important to understand how to use this cmdlet effectively, particularly when it comes to interpreting the information in the AuditData property, as different workloads insert different types of information into this property. 
+By default, the Search-UnifiedAuditLog cmdlet returns 100 audit records for any search request, unless you specify a different number of records to retrieve using the ResultSize parameter (up to a maximum of **5,000 records**). 
+A single search can process a maximum of **50,000 audit records** using page retrieval. Because the audit log can contain a large amount of data, it's important to be as specific as possible when using search parameters to avoid returning too many records. 
+To use the Search-UnifiedAuditLog cmdlet, your account must have the Exchange View-Only Audit Logs or Audit Logs role. These roles are part of the **Compliance Management and Organization Management role groups**, and can be assigned to other role groups as needed.
+
+## Source 
+List of [Record Types](https://learn.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema#auditlogrecordtype) 
+
 ## Structure of  Audit Data
 
 Audit records consist of two parts:
