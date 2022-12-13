@@ -38,7 +38,7 @@ Connect-ExchangeOnline
 ```powershell
 Search-UnifiedAuditLog -RecordType 'AipSensitivityLabelAction'  -StartDate "12/1/2022" -EndDate "12/31/2022" -ResultSize 1000
 ```
-
+# Attributes of the AipSensitivityLabelAction event
 The following table contains information related to AIP sensitivity label events.
 
 | Event                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
