@@ -25,7 +25,7 @@ Open a PowerShell window and run the Install-Module -Name ExchangeOnlineManageme
 2. Import-Module ExchangeOnlineManagement is a PowerShell cmdlet used to import the Exchange Online Management module into the current PowerShell session.
 
 ```powershell
-# Import the Exchange Online cmdlets
+# Import the PSSSession and Exchange Online cmdlets
 Connect-IPPSSession
 Import-Module ExchangeOnlineManagement
 ```
@@ -34,11 +34,11 @@ Import-Module ExchangeOnlineManagement
 
 Command to prompt for a specific user for  your Exchange Online credentials.
 ```powershell
-Run the $UserCredential = Get-Credential 
+$UserCredential = Get-Credential 
 ```
 Command to connect to Exchange Online using the provided credentials. 
 ```powershell
-Run the Connect-ExchangeOnline -Credential $UserCredential -ShowProgress $true 
+ Connect-ExchangeOnline -Credential $UserCredential -ShowProgress $true 
 ```
 ## Option 2 :- If you want to connect with a specific user. 
 Connect to Exchange Online using the credentials in the current session
