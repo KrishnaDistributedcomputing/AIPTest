@@ -83,23 +83,39 @@ This will give you a smaller set of events to work with, which you can then anal
 
 Following is an example of filtering data by looking for very specific operations and in a given date range.  Navigate to for  [Record Types](https://learn.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-schema#auditlogrecordtype) 
 
+### Script to look for specific operation 
 ```powershell
 $Operations = ("SensitivityLabelUpdated", "SensitivityLabelApplied", "FileSensitivityLabelApplied")
 $StartDate = (Get-Date).AddDays(-90)
 $EndDate = (Get-Date).AddDays(1)
 [Array]$Records = Search-UnifiedAuditLog -StartDate $StartDate -EndDate $EndDate -Formatted -ResultSize 5000 -Operations $Operations
 ```
+### Script to look for specific Record Type. AipDiscover in this case 
 ```powershell
 Search-UnifiedAuditLog -StartDate (Get-Date).AddDays(-100) -EndDate (Get-Date) -RecordType AipDiscover -Operations Access -ResultSize 5 -Formatted | Format-Table UserIds, CreationDate, Operations
+
  ```
- 
+ ### Storing the result in Array and search for a specific value , CreationDate in this scenario.
  ```powershell
-$Records = Search-UnifiedAuditLog -RecordType AipDiscover -StartDate (Get-Date).AddDays(-100) -EndDate (Get-Date)
-```
-```powershell
+[array]$Records  = Search-UnifiedAuditLog -RecordType AipDiscover -StartDate (Get-Date).AddDays(-100) -EndDate (Get-Date)
 $Records | Where-Object {$_.CreationDate -eq "2022-09-15 5:49:22 PM"}
 ```
-
+```keyvaule
+RunspaceId   : 136b901e-a6bc-4f24-bb58-5c435090df91
+RecordType   : AipDiscover
+CreationDate : 2022-09-15 5:49:22 PM
+UserIds      : AdeleV@M365x23987777.OnMicrosoft.com
+Operations   : Access
+AuditData    : {"SensitivityLabelEventData":{"SensitivityLabelId":"8581574a-c314-42e3-bfdc-a63cf96ed86e"},"SensitiveInfoTypeData":[],"ProtectionEventData":{"IsProtected":false},"Common":{"ApplicationId":"c00e9d32-3c8d-4a7d-832b-029040e7db99","ApplicationName":"Microsoft 
+               Azure Information Protection Word Add-In","ProcessName":"WINWORD","Platform":1,"DeviceName":"AdeleVanceWindo","Location":"On-premises file shares","ProductVersion":"2.13.49.0"},"DataState":"Use","ObjectId":"C:\\452Documentcreated.docx","UserId":"AdeleV@M36
+               5x23987777.OnMicrosoft.com","ClientIP":"20.237.230.167","Id":"20728aaf-1964-1a4a-bd72-784fa3c12132","RecordType":93,"CreationTime":"2022-09-15T17:49:22","Operation":"Access","OrganizationId":"4b080626-0acc-4940-8af8-bfc836ff1a59","UserType":0,"UserKey":"Ad
+               eleV@M365x23987777.OnMicrosoft.com","Workload":"Aip","Version":1,"Scope":1}
+ResultIndex  : 8
+ResultCount  : 8
+Identity     : 20728aaf-1964-1a4a-bd72-784fa3c12132
+IsValid      : True
+ObjectState  : Unchanged
+```
 
 
 ## Managing Large Amounts of Audit Data
