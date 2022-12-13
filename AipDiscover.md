@@ -2,6 +2,9 @@
 The Unified Audit Log, as the name implies, is a log file in which different activities performed in and through Microsoft 365 are recorded. The log contains a lot of useful information which you can use for a variety of activities related to your security operations.  Following is sample powershell script to extract information from search_unifiedauditlog
  
  Review the following on how to [enable Auditlog](https://learn.microsoft.com/en-us/powershell/module/exchange/search-unifiedauditlog?view=exchange-ps)
+ 
+ Sample script to extract values.
+ 
 ```powershell
 Search-UnifiedAuditLog -StartDate "9/1/22" -EndDate "10/19/22" -RecordType SharePointFileOperation
 ```
