@@ -1,4 +1,4 @@
-# Needs connections to Exchange Online and the compliance endpoints
+#Extracting information from Search_unifiedauditlog   
 The Unified Audit Log, as the name implies, is a log file in which different activities performed in and through Microsoft 365 are recorded. The log contains a lot of useful information which you can use for a variety of activities related to your security operations.  Following is sample powershell script to extract information from search_unifiedauditlog
  
  Review the following on how to [enable Auditlog](https://learn.microsoft.com/en-us/powershell/module/exchange/search-unifiedauditlog?view=exchange-ps)
