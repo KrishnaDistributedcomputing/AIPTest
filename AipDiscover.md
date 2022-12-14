@@ -52,11 +52,11 @@ Note: This is just an example of how the Search-UnifiedAuditLog cmdlet can be us
 ## Additional Powershell samples
 
 ```powershell
-Search-UnifiedAuditLog -StartDate "9/1/22" -EndDate "10/19/22" -RecordType AipDiscover
+Search-UnifiedAuditLog -RecordType AipDiscover -StartDate (Get-Date).AddDays(-100) -EndDate (Get-Date)
 ```
 
 ```powershell
-Search-UnifiedAuditLog -Operations Access -StartDate 1-Jan-2022 -EndDate 5-Dec-2022 -ResultSize 2000
+Search-UnifiedAuditLog -Operations Access -RecordType AipDiscover -StartDate (Get-Date).AddDays(-100) -EndDate (Get-Date) -ResultSize 2000
 ```
 
 ## Attributes of the AipDiscover event
