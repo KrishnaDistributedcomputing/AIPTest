@@ -1,7 +1,9 @@
 ## AipDiscover
-AIPDiscover is a type of event that is recorded in the Office 365 Unified Audit Log. It represents a successful attempt to discover the Azure Information Protection (AIP) classification and labeling configuration for a tenant. This event is typically logged when an administrator or user with the appropriate permissions accesses the AIP configuration settings in the Azure Portal or uses the Azure Information Protection PowerShell cmdlets to view the configuration.
+AIPDiscover is a type of event that is recorded in the Office 365 Unified Audit Log. It represents a successful attempt to discover the Azure Information Protection (AIP) classification and labeling configuration for a tenant. This event is typically logged when an administrator or user with the appropriate permissions accesses the AIP configuration settings in the Azure Portal or uses the Azure Information Protection PowerShell cmdlets to view the configuration. It uses machine learning algorithms to scan through files and identify sensitive information such as personally identifiable information (PII), financial data, and intellectual property. AIPDiscover can be used to identify sensitive data that may have been missed during manual classification, and to ensure that data is properly protected and compliant with relevant regulations and policies.
 
 Azure Information Protection is a service that allows organizations to classify and label sensitive data, and apply policies to control how that data is accessed and shared. The AIPDiscover event can be useful for tracking and monitoring access to the AIP configuration, and ensuring that only authorized users are able to view or modify it.
+
+AIPDiscover is a feature within AIP that allows users to discover and classify sensitive data within their organization's documents and emails. 
 
 Before connecting to Unified Audit Log - we need to connect with Exchange Online using PowerShell, you can use the following steps:
 
