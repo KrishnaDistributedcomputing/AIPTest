@@ -86,17 +86,19 @@ AuditData:
 * RecordType: The type of workload that generated the record, such as Azure Active Directory, Microsoft Teams, Exchange Admin, or SharePoint File Operation.
 * CreationTime: The date and time in UTC format when the activity was performed.
 * Operation: The operation logged when someone accesses an item, such as FileViewed in the case of SharePoint Online.
-*OrganizationId: The unique tenant identifier in the form of a GUID.
-*UserKey: The identity used to gain access to the item, typically achieved through membership in a group.
-*Workload: The name of the application that logged the event, such as SharePoint Online, Exchange Online, OneDrive for Business, or Azure AD.
-*ClientIP: The IP address of the client workstation where the action originated.
-*ObjectID: The full path to the object that was accessed.
-*UserID: The Azure AD account identifier for the account that caused the action to occur.
-*UserAgent: The client used to invoke the action.
-*SourceFileName: The name of the file involved in the action.
-*UserType: The type of user that performed the action, with values of "0" (regular user), "1" (administrator), or "2" (Microsoft data center administrator or system account).
-*EventSource: Only used by SharePoint Online, indicating whether the source was SharePoint or ObjectMode
+* OrganizationId: The unique tenant identifier in the form of a GUID.
+* UserKey: The identity used to gain access to the item, typically achieved through membership in a group.
+* Workload: The name of the application that logged the event, such as SharePoint Online, Exchange Online, OneDrive for Business, or Azure AD.
+* ClientIP: The IP address of the client workstation where the action originated.
+* ObjectID: The full path to the object that was accessed.
+* UserID: The Azure AD account identifier for the account that caused the action to occur.
+* UserAgent: The client used to invoke the action.
+* SourceFileName: The name of the file involved in the action.
+* UserType: The type of user that performed the action, with values of "0" (regular user), "1" (administrator), or "2" (Microsoft data center administrator or system account).
+* EventSource: Only used by SharePoint Online, indicating whether the source was SharePoint or ObjectMode
 
+* The ResultIndex and ResultCount properties can be useful when working with large record sets. ResultIndex indicates the record number within the returned set, while ResultCount shows the total number of records returned. For example, if ResultIndex is 1 and ResultCount is 125, it means that the record shown is the first of 125 returned in the set.
+*    If the search encounters an internal timeout, ResultIndex will be set to -1. As administrators gain experience with the audit log and the PowerShell cmdlets, they will discover that the audit log is a valuable source of information for understanding who interacted with a document or created new documents during a certain time period. It may take some trial and error to fully utilize the information provided in audit records.
 
 ## Finding the correct set events
 
