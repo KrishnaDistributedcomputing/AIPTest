@@ -100,42 +100,7 @@ AuditData:
 * The ResultIndex and ResultCount properties can be useful when working with large record sets. ResultIndex indicates the record number within the returned set, while ResultCount shows the total number of records returned. For example, if ResultIndex is 1 and ResultCount is 125, it means that the record shown is the first of 125 returned in the set.
 *    If the search encounters an internal timeout, ResultIndex will be set to -1. As administrators gain experience with the audit log and the PowerShell cmdlets, they will discover that the audit log is a valuable source of information for understanding who interacted with a document or created new documents during a certain time period. It may take some trial and error to fully utilize the information provided in audit records.
 
-Sample PS Script
-
-```ps
-$startTime = Get-Date
-$sessionName = (New-Guid).Guid
-$outData = @()
-$outputFile = "c:\temp\Output.csv"
-$endDate = (Get-Date).AddDays(+1)
-$startDate = (Get-Date).AddDays(-90)
-$pageNumber = 0
-Write-Host "Searching Office 365 Audit Log..."
-
-do {
-  $thisSearchStart = Get-Date
-  [array]$records = Search-UnifiedAuditLog -StartDate $startDate -EndDate $endDate -SessionId $sessionName -SessionCommand ReturnLargeSet -ResultSize 4500 -RecordType SharePointFileOperation
-  
-  if (($records.Count -gt 0) -and ($records[0].ResultIndex -eq -1)) {
-    # The audit data returned is bad
-    Write-Host "Error occurred fetching audit data. Resetting search and pausing before retrying ..." -foregroundcolor Red
-    Start-Sleep -Seconds 240 # Wait for 4 minutes
-    $sessionName = (New-Guid).Guid
-    $outData = @() # Go back to zero
-    continue
-  }
-  
-  if (($records.Count -gt 0) -and ($records[0].ResultIndex -ne -1)) {
-    # Got a good page
-    $outData += $records | Select-Object -ExpandProperty AuditData | ConvertFrom-Json
-    Write-Host ("Completed Page #{1}, returned {2} records in {0} seconds. Total records found so far {3}" -f [math]::Round((New-TimeSpan -Start $thisSearchStart).TotalSeconds), ++$pageNumber, $records.Count, $outData.Count)
-  }
-} until ($records.Count -eq 0) # Until we find no more records
-
-$outData = $outData | Sort {$_.CreationDate -as [datetime]}
-Write-Host ("All done {0} records found in {1} minutes." -f $outData.Count, [math]::Round((New-TimeSpan -Start $startTime).TotalMinutes, 3))
-
-```
+ 
 ## Finding the correct set events
 
 To find the right events when searching the audit log, it's important to know what you're looking for and use the appropriate filters and parameters. This can be challenging because the audit log can contain a large number of events, and searching for specific actions can be like searching for a small object in a large and disordered list of data.
