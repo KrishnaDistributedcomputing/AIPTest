@@ -83,9 +83,9 @@ AuditData:
 }
 ```
 
-*RecordType: The type of workload that generated the record, such as Azure Active Directory, Microsoft Teams, Exchange Admin, or SharePoint File Operation.
-*CreationTime: The date and time in UTC format when the activity was performed.
-*Operation: The operation logged when someone accesses an item, such as FileViewed in the case of SharePoint Online.
+* RecordType: The type of workload that generated the record, such as Azure Active Directory, Microsoft Teams, Exchange Admin, or SharePoint File Operation.
+* CreationTime: The date and time in UTC format when the activity was performed.
+* Operation: The operation logged when someone accesses an item, such as FileViewed in the case of SharePoint Online.
 *OrganizationId: The unique tenant identifier in the form of a GUID.
 *UserKey: The identity used to gain access to the item, typically achieved through membership in a group.
 *Workload: The name of the application that logged the event, such as SharePoint Online, Exchange Online, OneDrive for Business, or Azure AD.
